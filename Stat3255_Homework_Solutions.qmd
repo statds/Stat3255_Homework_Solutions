@@ -1,0 +1,397 @@
+---
+title: "Stat3255 Homework Solutions"
+author: "Yifan Li"
+format:
+  html:
+    code-fold: false
+execute:
+  warning: false
+  error: false
+jupyter: python3
+---
+
+## Q3: The Monty Hall Problem
+
+
+
+
+Solution from Alsubai Nadia.
+
+
+```{python}
+import numpy as np
+import decimal as dec
+
+#IMPORTANT KEY: 3 = no prize, 2 = prize
+def monty_hall_sim(ndoors, ntrials):
+    swap_results = np.zeros(ntrials) #initialize arrays for each result of ntrials size 
+    stay_results = np.zeros(ntrials)
+    
+    for i in range(ntrials):
+        doors = np.repeat(3, int(ndoors-1)) #make an array of repeated 3s to represent doors without prize
+        doors = np.append(doors, 2) #make the last door the prize door, represented by 2
+        np.random.shuffle(doors) #shuffle so that prize door is in random location
+        
+        player_1st_pick_index = np.random.randint(0, ndoors) #randomly pick an index: this is what the player randomly picks
+
+        stay_result = doors[player_1st_pick_index] #stay_result is either 2 or 3 here (2 = prize)
+
+        if stay_result == 2: #if the prize is selected, we need to make a new array where all elements except for the last are 3 (not-prizes)
+            new_doors = np.repeat(3, int(ndoors-1))
+            new_doors = np.append(new_doors, 10)     #10 to indicate picked prize on first try
+        else:
+            new_doors = np.repeat(3, int(ndoors-2))
+            new_doors = np.append(new_doors, 11)    #11 = picked NOT prize on first try
+            new_doors = np.insert(new_doors, 0, 2) #the first element is 2, aka the prize since player didn't pick correct on first try
+        
+        swap_result = new_doors[0] #we will now assume that the first element of the new doors array is the swap result 
+
+        if swap_result == 2: #if the swap result is the prize, we append 1 to the zeros array for swap that we made
+            swap_results = np.append(swap_results, 1)
+        else:  #if the swap result is NOT the prize, we append 1 to the zeros array for stay that we made
+            stay_results = np.append(stay_results, 1)
+
+    #now we count the 1s in each results array since 1 is indicative of a win round. We divide the counts by the total # of trials for each
+    swap_probability = dec.Decimal(np.count_nonzero(swap_results == 1))/(dec.Decimal(ntrials))
+    stay_probability = dec.Decimal(np.count_nonzero(stay_results == 1))/(dec.Decimal(ntrials))
+
+    return f'Swap/Stay Probabilities: {swap_probability, stay_probability}'
+
+
+print(monty_hall_sim(3, 1000))
+print(monty_hall_sim(5, 1000))
+```
+
+
+
+## Q4: Using Monte Carlo to Approximate Pi
+
+
+Solution from Bedard Kaitlyn.
+
+
+```{python}
+import numpy as np
+import scipy.stats as st
+
+def pi_approx(n):
+    # set random seed for replication
+    np.random.seed(77) 
+    # array of size n of random floats in range [0,1)                    
+    x = np.random.random(n)   
+    # array of size n of random floats in range [0,1)            
+    y = np.random.random(n)               
+    # array where 1 represents a point that lies in 1st quadrant of unit circle
+    approx_array = ((x**2) + (y**2))<= 1 
+    # mean of array approximates proportion of unit square and unit circle - pi/4
+    approx = approx_array.mean()          
+    # 95% confidence interval for estimate
+    ci = st.norm.interval(alpha=0.95, loc=np.mean(4*approx_array),scale=st.sem(4*approx_array)) 
+    # return estimate of pi
+    return (4*approx), ci                
+
+# test cases
+print("The pi approximation with a sample size of 1000 is", pi_approx(1000)[0])
+print("The 95% confidence interval at n=1000 is", pi_approx(1000)[1])
+print("The pi approximation with a sample size of 2000 is", pi_approx(2000)[0])
+print("The 95% confidence interval at n=2000 is", pi_approx(2000)[1])
+print("The pi approximation with a sample size of 4000 is", pi_approx(4000)[0])
+print("The 95% confidence interval at n=4000 is", pi_approx(4000)[1])
+print("The pi approximation with a sample size of 8000 is", pi_approx(8000)[0])
+print("The 95% confidence interval at n=8000 is", pi_approx(8000)[1])
+
+```
+
+
+## Q5
+
+Find the first 10-digit prime number occurring in consecutive digits of pi.
+
+
+Solution from Lunetta Giovanni.
+
+```{python}
+# importing these libraries allows us to use arbitrary-precision decimal 
+# arithmetic and prime numbers
+import decimal
+from sympy import isprime
+# defines the proper function
+def find_10_digit_prime_in_e():
+    # sets the precision of the decimal module to 10000, 
+    # meaning that we will be working with 10000 decimal digits of e
+    decimal.getcontext().prec = 10000
+    # use the built-in function in python's decimal module to compute
+    #  the value of e and store it in a variable e
+    e = decimal.Decimal(1).exp()
+    # convert the value of e to a string
+    e = str(e)
+    # remove the decimal point from the string representation of e
+    e = e.replace(".", "")
+    # starts a for loop that will run once for each possible starting 
+    # index of a 10-digit sequence in the string e
+    for i in range(len(e) - 10):
+        # creates a variable named num that is set 
+        # to the 10-digit sequence
+        # starting at index i of the string e
+        num = int(e[i:i+10])
+        # if the number is prime it returns the number
+        if isprime(num):
+            return num
+print(find_10_digit_prime_in_e())
+print("Help from:")
+print("https://stackoverflow.com/")
+print("https://math.stackexchange.com/")
+```
+
+
+
+## Q6 NYC Crash data preparation
+
+
+Solutions from Bedard Kaitlyn.
+
+### Question 1
+Importing January 2023 NYC crash data.
+```{python}
+import pandas as pd
+
+# import data
+jan23 = pd.read_csv("nyc_crashes_202301.csv")
+# create a copy for cleaning
+jan23_cleaning = jan23.copy()
+# gives the dimensions of our data
+jan23.shape
+# list containing our variables
+vars = list(jan23)
+```
+
+### Question 2
+Our discrete variables are `CRASH DATE`, `CRASH TIME`, `BOROUGH`, `ZIPCODE`, `ON STREET NAME`,
+`CROSS STREET NAME`, `OFF STREET NAME`, `CONTRIBUTING FACTOR VEHICLE 1`, `CONTRIBUTING FACTOR VEHICLE 2`,
+`CONTRIBUTING FACTOR VEHICLE 3`, `CONTRIBUTING FACTOR VEHICLE 4`, `CONTRIBUTING FACTOR VEHICLE 5`,
+`COLLISION_ID`, `VEHICLE TYPE CODE 1`, `VEHICLE TYPE CODE 2`,`VEHICLE TYPE CODE 3`,
+`VEHICLE TYPE CODE 4`, `VEHICLE TYPE CODE 5`.
+We do not include `COLLISION_ID` because each ID is unique, and we do not include
+`CONTRIBUTING FACTOR VEHICLE 1` because it will be discussed in question 7.
+The output of the code consists of the percent of missing entries for each variable, 
+the descriptive statistics for the continuous variables, and the frequency tables for the discrete variables. 
+```{python}
+# percent missing for each variable
+print((jan23.isnull().sum() * 100)/ len(jan23))
+
+# descriptive statistics for continuous variables
+print(jan23.describe())
+
+# frequency tables for discrete variables
+print(jan23["CRASH DATE"].value_counts(dropna=False))
+print(jan23["CRASH TIME"].value_counts(dropna=False))
+print(jan23["BOROUGH"].value_counts(dropna=False))
+print(jan23["ZIP CODE"].value_counts(dropna=False))
+print(jan23["ON STREET NAME"].value_counts(dropna=False))
+print(jan23["CROSS STREET NAME"].value_counts(dropna=False))
+print(jan23["OFF STREET NAME"].value_counts(dropna=False))
+  #jan23["CONTRIBUTING FACTOR VEHICLE 1"].value_counts(dropna=False)
+print(jan23["CONTRIBUTING FACTOR VEHICLE 2"].value_counts(dropna=False))
+print(jan23["CONTRIBUTING FACTOR VEHICLE 3"].value_counts(dropna=False))
+print(jan23["CONTRIBUTING FACTOR VEHICLE 4"].value_counts(dropna=False))
+print(jan23["CONTRIBUTING FACTOR VEHICLE 5"].value_counts(dropna=False))
+print(jan23["CONTRIBUTING FACTOR VEHICLE 1"].value_counts(dropna=False))
+print(jan23["VEHICLE TYPE CODE 1"].value_counts(dropna=False))
+print(jan23["VEHICLE TYPE CODE 2"].value_counts(dropna=False))
+print(jan23["VEHICLE TYPE CODE 3"].value_counts(dropna=False))
+print(jan23["VEHICLE TYPE CODE 4"].value_counts(dropna=False))
+print(jan23["VEHICLE TYPE CODE 5"].value_counts(dropna=False))
+```
+
+### Question 3
+For the most part the values of `LATITUDE` and `LONGITUDE` all look legitimate, 
+however there are a handful of entries -- 76 -- that are 0.000000, which is not possible
+considering NYC is not located at this longitude or latitude. The below code shows
+the frequency tables for these two variables, and it then changes the entries
+with 0.0s to missing values.
+
+```{python}
+import numpy as np
+# frequency tables 
+print(jan23["LATITUDE"].value_counts(dropna=False))
+print(jan23["LONGITUDE"].value_counts(dropna=False))
+# replace 0.0 with nan (on cleaning dataframe)
+jan23_cleaning["LATITUDE"] = jan23["LATITUDE"].replace([0.0], np.nan)
+jan23_cleaning["LONGITUDE"] = jan23["LONGITUDE"].replace([0.0], np.nan)
+```
+
+### Question 4
+There were 32 instances of missing latitude and longitude in which there was 
+an entry for `OFF STREET NAME`. The below code finds any instance in which 
+`OFF STREET NAME` is not missing and `LATITUDE` and `LONGITUDE` are missing, 
+and replaces the missing location via geocoding (if the geocoding method 
+is able to locate it). 
+
+```{python}
+from geopy.geocoders import Nominatim
+import numpy as np
+
+# determines the latitude and longitude given a street address
+def location(address):
+    # concatenate more information
+    new_addr = address + ", New York, New York"
+    # try to locate address
+    try:
+        geolocator = Nominatim(user_agent="my_request")
+        location = geolocator.geocode(new_addr)
+        return location.latitude, location.longitude
+    # if cannot locate, return nan
+    except:
+        return np.nan, np.nan
+
+# all crashes that have an off street name entry
+has_off_street = jan23['OFF STREET NAME'].notnull()
+# all crashes with no latitude entry
+no_lat = jan23['LATITUDE'].isnull()
+# all crashes with an off street entry but no latitude entry
+has_street_no_lat = jan23_cleaning[has_off_street & no_lat]
+
+
+count = 0
+# for each entry 
+for i in has_street_no_lat["OFF STREET NAME"]:
+    # if location is found, update the latitude and longitude
+    if location(i) is not None:
+        lat, lng = location(i)
+        jan23_cleaning["LATITUDE"][count] = lat  
+        jan23_cleaning["LONGITUDE"][count] = lng
+        # printing to show the updates
+        print(jan23_cleaning["LATITUDE"][count],jan23_cleaning["LONGITUDE"][count])
+    count+=1
+
+```
+
+### Question 5 (optional)
+From the below code, we see that there are 32 reports that are missing both latitude
+and on street name. There are many more reports missing the on street name input 
+then those missing the latitude. However, not all reports missing on street name
+are missing latitude, and vice versa. Thus, the missing patterns of these two 
+variables do not exactly match. We also see that there are 209 reports that have
+both an input for cross street name and on street name, but do not have have 
+latitude and longitude inputs. We could theoretically determine the geolocation 
+based on this information and fill in these missing values. (However, I could 
+not figure out how to do so)
+
+* Note: I am working on original data frame, not the one altered in the last question.
+```{python}
+# set with indexes of all crashes missing "ON STREET NAME"
+no_onstreet = set(jan23[jan23['ON STREET NAME'].isnull()].index.tolist())
+# set with indexes of all crashes not missing "ON STREET NAME"
+has_onstreet = set(jan23[jan23['ON STREET NAME'].notnull()].index.tolist())
+# set with indexes of all crashes missing "LATITUDE"
+no_lat = set(jan23[jan23['LATITUDE'].isnull()].index.tolist())
+# set with indexes of all crashes not missing "LATITUDE"
+has_lat = set(jan23[jan23['LATITUDE'].notnull()].index.tolist())
+
+# set with indexes of crashes missing on street and latitude
+missing_both = no_onstreet.intersection(no_lat)
+print("Number of crashes missing both on street name and latitude:" , len(missing_both))
+
+# cross table for on street and latitude
+with pd.option_context('display.max_rows', None): 
+  pd.crosstab(index = jan23["ON STREET NAME"], columns = jan23["LATITUDE"], dropna = False)
+
+# set with indexes of all crashes not missing cross street name
+has_cross_street = set(jan23[jan23['CROSS STREET NAME'].notnull()].index.tolist())
+# set with indexes of crashes that have a cross street name and on street name
+cross_and_on = has_onstreet.intersection(has_cross_street)
+
+# set with indexes containing the off street and cross street but missing geolocation
+cross_on_nolat = cross_and_on.intersection(no_lat)
+print("Number of crashes with both on street name and cross street name but missing latitude and longitude:" ,len(cross_on_nolat))
+```
+
+### Question 6
+Yes, zip code and borough are always missing together. The below code 
+uses reverse geocoding to fill in the missing zips and boroughs, given 
+that the latitude and longitude are available for a given crash. See 
+the output for the replaced zipcodes and boroughs.
+```{python}
+# series with all crashes missing "ZIP CODE"
+no_zip = jan23['ZIP CODE'].isnull()
+
+# series with all crashes missing "BOROUGH"
+no_borough = jan23['BOROUGH'].isnull()
+
+# check if zipcode and borough are always missing together
+print("Zip and Borough are always missing together? ", no_zip.equals(no_borough))
+
+# creates a series containing reports that are missing zipcode but have latitude
+no_zip_yes_lat_mask = no_zip & (jan23["LATITUDE"].notnull())
+no_zip_yes_lat = jan23[no_zip_yes_lat_mask]
+
+# imports for the following functions
+from uszipcode import SearchEngine
+import numpy as np
+from typing import Union, List
+
+# Note this is code from the class notes
+# Given zipcode, computes the respective borough
+def nyczip2borough(zips: pd.Series) -> pd.Series:
+    zips = zips.values if isinstance(zips, pd.Series) else zips
+    condlist = [
+        (zips >= 10001) & (zips <= 10282),
+        (zips >= 10301) & (zips <= 10314),
+        (zips >= 10451) & (zips <= 10475),
+        (zips >= 11004) & (zips <= 11109),
+        (zips >= 11351) & (zips <= 11697),
+        (zips >= 11201) & (zips <= 11256),
+    ]
+    choicelist = [
+        "MANHATTAN",
+        "STATEN ISLAND",
+        "BRONX",
+        "QUEENS",
+        "QUEENS",
+        "BROOKLYN",
+    ]
+    result = pd.Series(np.select(condlist, choicelist, default=np.nan))
+    return result
+
+sr = SearchEngine()
+# find the missing zipcodes
+zipcodes = [(int(sr.by_coordinates(lat, lng, radius=5)[0].zipcode)) for lat, lng in zip(no_zip_yes_lat['LATITUDE'], no_zip_yes_lat['LONGITUDE'])]
+zipcodes = pd.Series(zipcodes)
+
+# find the missing boroughs
+boroughs = nyczip2borough(zipcodes)
+
+# replace missing entry with found zipcode
+jan23_cleaning.loc[no_zip_yes_lat_mask, "ZIP CODE"] = zipcodes.values
+# replace missing entry with found borough
+jan23_cleaning.loc[no_zip_yes_lat_mask, "BOROUGH"] = boroughs.values
+
+# printing to show that it works
+print(jan23_cleaning.loc[no_zip_yes_lat_mask, "ZIP CODE"])
+print(jan23_cleaning.loc[no_zip_yes_lat_mask, "BOROUGH"])
+
+```
+
+### Question 7
+The below code prints the whole frequency table of 
+`CONTRIBUTING FACTOR VEHICLE 1` and then converts 
+the entries to all lowercase and checks the frequencies again.
+There is no difference. 
+```{python}
+with pd.option_context('display.max_rows', None):
+  print(jan23["CONTRIBUTING FACTOR VEHICLE 1"].value_counts(dropna=False))
+
+with pd.option_context('display.max_rows', None):
+  print(jan23["CONTRIBUTING FACTOR VEHICLE 1"].str.lower().value_counts(dropna=False))
+```
+
+### Question 8
+Given an opportunity to meet with the data provider, I would give them the following suggestions:
+
+*  It seems unneeded to include location, given that latitude and longitude is already included
+
+*   Suggest that the possible entries for contributing factors and vehicle types are standardizes
+
+*   Suggest that they use given information (such as latitude and longitude) to fill out zipcodes, boroughs, or street addresses, or vice versa to make the data more complete
+
+*   Clarify whether a crash at 00:00 is actually at midnight or if it should be treated as a missing value
