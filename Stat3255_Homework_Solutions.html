@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Yifan Li">
+
+<title>Stat3255 Homework Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Stat3255_Homework_Solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Stat3255_Homework_Solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="Stat3255_Homework_Solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="Stat3255_Homework_Solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Stat3255_Homework_Solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Stat3255_Homework_Solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Stat3255_Homework_Solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Stat3255_Homework_Solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Stat3255_Homework_Solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Stat3255_Homework_Solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Stat3255 Homework Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yifan Li </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="q3-the-monty-hall-problem" class="level2">
+<h2 class="anchored" data-anchor-id="q3-the-monty-hall-problem">Q3: The Monty Hall Problem</h2>
+<p>Solution from Alsubai Nadia.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># function to choose the door the host opens</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> open_door(win, choice, doors):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set containing doors that the host cannot open</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    do_not_open <span class="op">=</span> {win, choice} </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set containing all door indexes</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    all_doors <span class="op">=</span> <span class="bu">set</span>(doors) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list containing all the doors that the host can open</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    options <span class="op">=</span> <span class="bu">list</span>(all_doors <span class="op">-</span> do_not_open) </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># choose a random door for the host to open</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    opened <span class="op">=</span> random.choice(options) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> opened</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># function to choose the door the player switches to</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> switch_doors(choice, opened_door, doors):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set containing the doors that the player cannot open</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    cannot_open <span class="op">=</span> {choice, opened_door} </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set containing all door indexes</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    all_doors <span class="op">=</span> <span class="bu">set</span>(doors) </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list containing the doors that the player can choose</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    options <span class="op">=</span> <span class="bu">list</span>(all_doors <span class="op">-</span> cannot_open) </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># choose a random door for the player to switch to </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    switched_door <span class="op">=</span> random.choice(options)  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> switched_door</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># function to determine if staying results in win or loss</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stay(win, choice):</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if chosen door is the winning door, win = True</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> win <span class="op">==</span> choice:   </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># else, chosen door is not winning door so, win = False</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:               </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># function to determine if switching results in win or loss</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> switch(win, choice, opened_door, doors):</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># must choose a random door to switch to if there are more then 3 doors</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="bu">len</span>(doors) <span class="op">!=</span> <span class="dv">3</span>):   </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        switched_door <span class="op">=</span> switch_doors(choice, opened_door, doors)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if newly chosen door is winning door, win = True</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> switched_door <span class="op">==</span> win:    </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if newly chosen door is not winning door, win = False</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:                      </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if ndoors is 3, we do not need to compute the door to switch to </span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if initially chosen door is the prize door, switching results in loss </span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> (win <span class="op">==</span> choice):  </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># otherwise initially chosen door is not prize, thus switching will win </span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:                   </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># simulation function</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> montyhall(ndoors, ntrials):</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize our counts to 0</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    switch_win_count <span class="op">=</span> <span class="dv">0</span>       </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    stay_win_count <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># do ntrials</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(ntrials):  </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        <span class="co"># create a list of doors (indexs start at 0)</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        doors <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(ndoors)]  </span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="co"># choose a winning door randomly</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        win <span class="op">=</span> random.choice(doors)  </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="co"># player choses any random door</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        choice <span class="op">=</span> random.choice(doors) </span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        <span class="co"># host opens a new door (without prize behind it)</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        opened_door <span class="op">=</span> open_door(win, choice, doors) </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if stay results in a win (1), increase stay win count</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> stay(win, choice):  </span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>            stay_win_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if switch results in a win (1), increase switch win count</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> switch(win, choice, opened_door, doors): </span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>            switch_win_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="co"># average of winning if player stays</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    stay_result <span class="op">=</span> stay_win_count<span class="op">/</span>ntrials   </span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># average of winning if player switched    </span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    switch_result <span class="op">=</span> switch_win_count<span class="op">/</span>ntrials    </span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (stay_result, switch_result)</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="co"># test cases</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The proportion of winning if the player stays in the 3 door "</span> </span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>      <span class="st">"scenario is"</span>, montyhall(<span class="dv">3</span>,<span class="dv">1000</span>)[<span class="dv">0</span>])</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The proportion of winning if the player switches in the 3 door "</span> </span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>      <span class="st">"scenario is"</span>, montyhall(<span class="dv">3</span>,<span class="dv">1000</span>)[<span class="dv">1</span>])</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The proportion of winning if the player stays in the 5 door "</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>      <span class="st">"scenario is"</span>, montyhall(<span class="dv">5</span>,<span class="dv">1000</span>)[<span class="dv">0</span>])</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The proportion of winning if the player switches in the 5 door "</span> </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>      <span class="st">"scenario is"</span>, montyhall(<span class="dv">5</span>,<span class="dv">1000</span>)[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The proportion of winning if the player stays in the 3 door scenario is 0.331
+The proportion of winning if the player switches in the 3 door scenario is 0.664
+The proportion of winning if the player stays in the 5 door scenario is 0.194
+The proportion of winning if the player switches in the 5 door scenario is 0.257</code></pre>
+</div>
+</div>
+</section>
+<section id="q4-using-monte-carlo-to-approximate-pi" class="level2">
+<h2 class="anchored" data-anchor-id="q4-using-monte-carlo-to-approximate-pi">Q4: Using Monte Carlo to Approximate Pi</h2>
+<p>Solution from Bedard Kaitlyn.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pi_approx(n):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set random seed for replication</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">77</span>) </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># array of size n of random floats in range [0,1)                    </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.random(n)   </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># array of size n of random floats in range [0,1)            </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.random(n)               </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># array where 1 represents a point that lies in 1st quadrant of unit circle</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    approx_array <span class="op">=</span> ((x<span class="op">**</span><span class="dv">2</span>) <span class="op">+</span> (y<span class="op">**</span><span class="dv">2</span>))<span class="op">&lt;=</span> <span class="dv">1</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># mean of array approximates proportion of unit square and unit circle - pi/4</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    approx <span class="op">=</span> approx_array.mean()          </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 95% confidence interval for estimate</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    ci <span class="op">=</span> st.norm.interval(alpha<span class="op">=</span><span class="fl">0.95</span>, loc<span class="op">=</span>np.mean(<span class="dv">4</span><span class="op">*</span>approx_array),scale<span class="op">=</span>st.sem(<span class="dv">4</span><span class="op">*</span>approx_array)) </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return estimate of pi</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="dv">4</span><span class="op">*</span>approx), ci                </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># test cases</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The pi approximation with a sample size of 1000 is"</span>, pi_approx(<span class="dv">1000</span>)[<span class="dv">0</span>])</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The 95</span><span class="sc">% c</span><span class="st">onfidence interval at n=1000 is"</span>, pi_approx(<span class="dv">1000</span>)[<span class="dv">1</span>])</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The pi approximation with a sample size of 2000 is"</span>, pi_approx(<span class="dv">2000</span>)[<span class="dv">0</span>])</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The 95</span><span class="sc">% c</span><span class="st">onfidence interval at n=2000 is"</span>, pi_approx(<span class="dv">2000</span>)[<span class="dv">1</span>])</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The pi approximation with a sample size of 4000 is"</span>, pi_approx(<span class="dv">4000</span>)[<span class="dv">0</span>])</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The 95</span><span class="sc">% c</span><span class="st">onfidence interval at n=4000 is"</span>, pi_approx(<span class="dv">4000</span>)[<span class="dv">1</span>])</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The pi approximation with a sample size of 8000 is"</span>, pi_approx(<span class="dv">8000</span>)[<span class="dv">0</span>])</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The 95</span><span class="sc">% c</span><span class="st">onfidence interval at n=8000 is"</span>, pi_approx(<span class="dv">8000</span>)[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The pi approximation with a sample size of 1000 is 3.128
+The 95% confidence interval at n=1000 is (3.0255865582273396, 3.2304134417726607)
+The pi approximation with a sample size of 2000 is 3.154
+The 95% confidence interval at n=2000 is (3.0823926305354026, 3.2256073694645973)
+The pi approximation with a sample size of 4000 is 3.167
+The 95% confidence interval at n=4000 is (3.116659338122253, 3.2173406618777465)
+The pi approximation with a sample size of 8000 is 3.1455
+The 95% confidence interval at n=8000 is (3.10957215893032, 3.1814278410696804)</code></pre>
+</div>
+</div>
+</section>
+<section id="q5" class="level2">
+<h2 class="anchored" data-anchor-id="q5">Q5</h2>
+<p>Find the first 10-digit prime number occurring in consecutive digits of pi.</p>
+<p>Solution from Lunetta Giovanni.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing these libraries allows us to use arbitrary-precision decimal </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># arithmetic and prime numbers</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> decimal</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> isprime</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># defines the proper function</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_10_digit_prime_in_e():</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sets the precision of the decimal module to 10000, </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># meaning that we will be working with 10000 decimal digits of e</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    decimal.getcontext().prec <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use the built-in function in python's decimal module to compute</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  the value of e and store it in a variable e</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> decimal.Decimal(<span class="dv">1</span>).exp()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert the value of e to a string</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remove the decimal point from the string representation of e</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> e.replace(<span class="st">"."</span>, <span class="st">""</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># starts a for loop that will run once for each possible starting </span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># index of a 10-digit sequence in the string e</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(e) <span class="op">-</span> <span class="dv">10</span>):</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># creates a variable named num that is set </span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to the 10-digit sequence</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># starting at index i of the string e</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        num <span class="op">=</span> <span class="bu">int</span>(e[i:i<span class="op">+</span><span class="dv">10</span>])</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if the number is prime it returns the number</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> isprime(num):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> num</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(find_10_digit_prime_in_e())</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Help from:"</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"https://stackoverflow.com/"</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"https://math.stackexchange.com/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7427466391
+Help from:
+https://stackoverflow.com/
+https://math.stackexchange.com/</code></pre>
+</div>
+</div>
+</section>
+<section id="q6-nyc-crash-data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="q6-nyc-crash-data-preparation">Q6 NYC Crash data preparation</h2>
+<p>Solutions from Bedard Kaitlyn.</p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>Importing January 2023 NYC crash data.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import data</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>jan23 <span class="op">=</span> pd.read_csv(<span class="st">"nyc_crashes_202301.csv"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a copy for cleaning</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>jan23_cleaning <span class="op">=</span> jan23.copy()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># gives the dimensions of our data</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>jan23.shape</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># list containing our variables</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">vars</span> <span class="op">=</span> <span class="bu">list</span>(jan23)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p>Our discrete variables are <code>CRASH DATE</code>, <code>CRASH TIME</code>, <code>BOROUGH</code>, <code>ZIPCODE</code>, <code>ON STREET NAME</code>, <code>CROSS STREET NAME</code>, <code>OFF STREET NAME</code>, <code>CONTRIBUTING FACTOR VEHICLE 1</code>, <code>CONTRIBUTING FACTOR VEHICLE 2</code>, <code>CONTRIBUTING FACTOR VEHICLE 3</code>, <code>CONTRIBUTING FACTOR VEHICLE 4</code>, <code>CONTRIBUTING FACTOR VEHICLE 5</code>, <code>COLLISION_ID</code>, <code>VEHICLE TYPE CODE 1</code>, <code>VEHICLE TYPE CODE 2</code>,<code>VEHICLE TYPE CODE 3</code>, <code>VEHICLE TYPE CODE 4</code>, <code>VEHICLE TYPE CODE 5</code>. We do not include <code>COLLISION_ID</code> because each ID is unique, and we do not include <code>CONTRIBUTING FACTOR VEHICLE 1</code> because it will be discussed in question 7. The output of the code consists of the percent of missing entries for each variable, the descriptive statistics for the continuous variables, and the frequency tables for the discrete variables.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percent missing for each variable</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((jan23.isnull().<span class="bu">sum</span>() <span class="op">*</span> <span class="dv">100</span>)<span class="op">/</span> <span class="bu">len</span>(jan23))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># descriptive statistics for continuous variables</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23.describe())</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># frequency tables for discrete variables</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CRASH DATE"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CRASH TIME"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"BOROUGH"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"ZIP CODE"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"ON STREET NAME"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CROSS STREET NAME"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"OFF STREET NAME"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#jan23["CONTRIBUTING FACTOR VEHICLE 1"].value_counts(dropna=False)</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 2"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 3"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 4"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 5"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 1"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"VEHICLE TYPE CODE 1"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"VEHICLE TYPE CODE 2"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"VEHICLE TYPE CODE 3"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"VEHICLE TYPE CODE 4"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"VEHICLE TYPE CODE 5"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CRASH DATE                        0.000000
+CRASH TIME                        0.000000
+BOROUGH                          33.961721
+ZIP CODE                         33.961721
+LATITUDE                          6.720391
+LONGITUDE                         6.720391
+LOCATION                          6.720391
+ON STREET NAME                   26.061304
+CROSS STREET NAME                52.295294
+OFF STREET NAME                  73.938696
+NUMBER OF PERSONS INJURED         0.000000
+NUMBER OF PERSONS KILLED          0.000000
+NUMBER OF PEDESTRIANS INJURED     0.000000
+NUMBER OF PEDESTRIANS KILLED      0.000000
+NUMBER OF CYCLIST INJURED         0.000000
+NUMBER OF CYCLIST KILLED          0.000000
+NUMBER OF MOTORIST INJURED        0.000000
+NUMBER OF MOTORIST KILLED         0.000000
+CONTRIBUTING FACTOR VEHICLE 1     0.762700
+CONTRIBUTING FACTOR VEHICLE 2    25.600806
+CONTRIBUTING FACTOR VEHICLE 3    90.358325
+CONTRIBUTING FACTOR VEHICLE 4    97.337746
+CONTRIBUTING FACTOR VEHICLE 5    99.150957
+COLLISION_ID                      0.000000
+VEHICLE TYPE CODE 1               1.899554
+VEHICLE TYPE CODE 2              36.782271
+VEHICLE TYPE CODE 3              91.106634
+VEHICLE TYPE CODE 4              97.510433
+VEHICLE TYPE CODE 5              99.194129
+dtype: float64
+           ZIP CODE     LATITUDE    LONGITUDE  NUMBER OF PERSONS INJURED  \
+count   4589.000000  6482.000000  6482.000000                6949.000000   
+mean   10902.771192    40.243561   -73.051578                   0.504101   
+std      523.924934     4.384470     7.957957                   0.816949   
+min    10001.000000     0.000000   -74.250150                   0.000000   
+25%    10457.000000    40.662284   -73.965151                   0.000000   
+50%    11209.000000    40.710917   -73.921900                   0.000000   
+75%    11249.000000    40.771597   -73.864266                   1.000000   
+max    11694.000000    40.912827     0.000000                  21.000000   
+
+       NUMBER OF PERSONS KILLED  NUMBER OF PEDESTRIANS INJURED  \
+count               6949.000000                    6949.000000   
+mean                   0.002302                       0.116420   
+std                    0.050847                       0.400564   
+min                    0.000000                       0.000000   
+25%                    0.000000                       0.000000   
+50%                    0.000000                       0.000000   
+75%                    0.000000                       0.000000   
+max                    2.000000                      19.000000   
+
+       NUMBER OF PEDESTRIANS KILLED  NUMBER OF CYCLIST INJURED  \
+count                   6949.000000                6949.000000   
+mean                       0.000720                   0.034250   
+std                        0.026816                   0.182672   
+min                        0.000000                   0.000000   
+25%                        0.000000                   0.000000   
+50%                        0.000000                   0.000000   
+75%                        0.000000                   0.000000   
+max                        1.000000                   2.000000   
+
+       NUMBER OF CYCLIST KILLED  NUMBER OF MOTORIST INJURED  \
+count               6949.000000                 6949.000000   
+mean                   0.000288                    0.333285   
+std                    0.016964                    0.750946   
+min                    0.000000                    0.000000   
+25%                    0.000000                    0.000000   
+50%                    0.000000                    0.000000   
+75%                    0.000000                    0.000000   
+max                    1.000000                    8.000000   
+
+       NUMBER OF MOTORIST KILLED  COLLISION_ID  
+count                6949.000000  6.949000e+03  
+mean                    0.001295  4.598827e+06  
+std                     0.039768  2.205264e+03  
+min                     0.000000  4.594332e+06  
+25%                     0.000000  4.597033e+06  
+50%                     0.000000  4.598902e+06  
+75%                     0.000000  4.600709e+06  
+max                     2.000000  4.602743e+06  
+01/13/2023    292
+01/19/2023    278
+01/12/2023    268
+01/01/2023    265
+01/17/2023    249
+01/10/2023    248
+01/04/2023    245
+01/18/2023    242
+01/23/2023    240
+01/14/2023    235
+01/25/2023    234
+01/09/2023    231
+01/05/2023    229
+01/26/2023    227
+01/06/2023    226
+01/22/2023    226
+01/20/2023    225
+01/28/2023    222
+01/21/2023    218
+01/24/2023    217
+01/16/2023    214
+01/03/2023    214
+01/11/2023    212
+01/27/2023    201
+01/02/2023    196
+01/31/2023    192
+01/15/2023    189
+01/30/2023    186
+01/08/2023    183
+01/07/2023    173
+01/29/2023    172
+Name: CRASH DATE, dtype: int64
+0:00     110
+15:00     72
+18:00     69
+17:00     68
+10:00     62
+        ... 
+16:18      1
+4:42       1
+12:06      1
+3:19       1
+3:57       1
+Name: CRASH TIME, Length: 1232, dtype: int64
+NaN              2360
+BROOKLYN         1611
+QUEENS           1272
+BRONX             761
+MANHATTAN         757
+STATEN ISLAND     188
+Name: BOROUGH, dtype: int64
+NaN        2360
+11207.0     123
+11236.0      83
+11208.0      79
+11212.0      67
+           ... 
+11001.0       1
+10121.0       1
+11109.0       1
+10280.0       1
+10169.0       1
+Name: ZIP CODE, Length: 181, dtype: int64
+NaN                           1811
+BELT PARKWAY                   121
+BROOKLYN QUEENS EXPRESSWAY      71
+LONG ISLAND EXPRESSWAY          70
+FDR DRIVE                       53
+                              ... 
+122 AVENUE                       1
+EAST MOUNT EDEN AVENUE           1
+EAST 24 STREET                   1
+230 STREET                       1
+ASCAN AVENUE                     1
+Name: ON STREET NAME, Length: 1537, dtype: int64
+NaN                  3634
+3 AVENUE               37
+BROADWAY               34
+2 AVENUE               31
+ATLANTIC AVENUE        23
+                     ... 
+EAST 137 STREET         1
+WEST SERVICE ROAD       1
+WEST 81 STREET          1
+167 STREET              1
+113 AVENUE              1
+Name: CROSS STREET NAME, Length: 1521, dtype: int64
+NaN                              5138
+49-21     METROPOLITAN AVENUE       3
+985       RICHMOND AVENUE           3
+ATLANTIC AVENUE                     3
+560       WINTHROP STREET           3
+                                 ... 
+1330      PARK AVENUE               1
+93-08     241 STREET                1
+53-22     ROOSEVELT AVENUE          1
+20-36     PLAINVIEW AVENUE          1
+102       STRYKER STREET            1
+Name: OFF STREET NAME, Length: 1790, dtype: int64
+Unspecified                                              4373
+NaN                                                      1779
+Driver Inattention/Distraction                            300
+Other Vehicular                                            89
+Following Too Closely                                      69
+Passing or Lane Usage Improper                             59
+Traffic Control Disregarded                                45
+Failure to Yield Right-of-Way                              38
+Passing Too Closely                                        29
+Unsafe Speed                                               25
+Driver Inexperience                                        22
+Backing Unsafely                                           18
+View Obstructed/Limited                                    17
+Aggressive Driving/Road Rage                               12
+Reaction to Uninvolved Vehicle                             12
+Turning Improperly                                         11
+Unsafe Lane Changing                                       11
+Pavement Slippery                                           9
+Pedestrian/Bicyclist/Other Pedestrian Error/Confusion       8
+Oversized Vehicle                                           5
+Alcohol Involvement                                         3
+Failure to Keep Right                                       2
+Traffic Control Device Improper/Non-Working                 2
+Obstruction/Debris                                          2
+Passenger Distraction                                       2
+Outside Car Distraction                                     2
+Other Lighting Defects                                      1
+Fatigued/Drowsy                                             1
+Illnes                                                      1
+Shoulders Defective/Improper                                1
+Prescription Medication                                     1
+Name: CONTRIBUTING FACTOR VEHICLE 2, dtype: int64
+NaN                               6279
+Unspecified                        621
+Other Vehicular                     18
+Following Too Closely               12
+Driver Inattention/Distraction       9
+Passing or Lane Usage Improper       2
+Brakes Defective                     1
+Obstruction/Debris                   1
+Unsafe Speed                         1
+Passing Too Closely                  1
+View Obstructed/Limited              1
+Pavement Slippery                    1
+Turning Improperly                   1
+Reaction to Uninvolved Vehicle       1
+Name: CONTRIBUTING FACTOR VEHICLE 3, dtype: int64
+NaN                               6764
+Unspecified                        177
+Other Vehicular                      4
+Following Too Closely                2
+Obstruction/Debris                   1
+Passing or Lane Usage Improper       1
+Name: CONTRIBUTING FACTOR VEHICLE 4, dtype: int64
+NaN                   6890
+Unspecified             57
+Obstruction/Debris       1
+Other Vehicular          1
+Name: CONTRIBUTING FACTOR VEHICLE 5, dtype: int64
+Driver Inattention/Distraction                           1700
+Unspecified                                              1615
+Failure to Yield Right-of-Way                             549
+Following Too Closely                                     438
+Passing or Lane Usage Improper                            332
+Unsafe Speed                                              278
+Passing Too Closely                                       258
+Backing Unsafely                                          211
+Traffic Control Disregarded                               193
+Other Vehicular                                           180
+Turning Improperly                                        180
+Driver Inexperience                                       145
+Alcohol Involvement                                       124
+Unsafe Lane Changing                                      118
+View Obstructed/Limited                                    70
+Reaction to Uninvolved Vehicle                             63
+Aggressive Driving/Road Rage                               54
+Pedestrian/Bicyclist/Other Pedestrian Error/Confusion      54
+NaN                                                        53
+Pavement Slippery                                          48
+Fell Asleep                                                39
+Brakes Defective                                           30
+Oversized Vehicle                                          28
+Steering Failure                                           21
+Passenger Distraction                                      18
+Outside Car Distraction                                    17
+Lost Consciousness                                         17
+Glare                                                      14
+Tire Failure/Inadequate                                    13
+Obstruction/Debris                                         12
+Illnes                                                     10
+Drugs (illegal)                                            10
+Accelerator Defective                                       9
+Failure to Keep Right                                       9
+Driverless/Runaway Vehicle                                  6
+Pavement Defective                                          6
+Physical Disability                                         5
+Fatigued/Drowsy                                             4
+Animals Action                                              4
+Other Electronic Device                                     2
+Tinted Windows                                              2
+Tow Hitch Defective                                         2
+Cell Phone (hand-Held)                                      2
+Windshield Inadequate                                       1
+Texting                                                     1
+Prescription Medication                                     1
+Traffic Control Device Improper/Non-Working                 1
+Lane Marking Improper/Inadequate                            1
+Other Lighting Defects                                      1
+Name: CONTRIBUTING FACTOR VEHICLE 1, dtype: int64
+Sedan                                  3336
+Station Wagon/Sport Utility Vehicle    2399
+Taxi                                    173
+Pick-up Truck                           156
+Bus                                     133
+                                       ... 
+VAn                                       1
+Motorized                                 1
+electric s                                1
+TRAILER                                   1
+FDNY AMBUL                                1
+Name: VEHICLE TYPE CODE 1, Length: 64, dtype: int64
+NaN                                    2556
+Sedan                                  1898
+Station Wagon/Sport Utility Vehicle    1383
+Bike                                    180
+Box Truck                               148
+                                       ... 
+Tanker                                    1
+FOGLIFT                                   1
+School bus                                1
+TOW TRUCK                                 1
+wheelchair                                1
+Name: VEHICLE TYPE CODE 2, Length: 77, dtype: int64
+NaN                                    6331
+Sedan                                   322
+Station Wagon/Sport Utility Vehicle     247
+Pick-up Truck                            15
+Tractor Truck Diesel                      5
+Box Truck                                 5
+Van                                       5
+Taxi                                      4
+Bus                                       3
+Convertible                               2
+Flat Bed                                  2
+Moped                                     2
+UTILITY TR                                1
+Carry All                                 1
+Tractor Truck Gasoline                    1
+Tow Truck / Wrecker                       1
+FLAT                                      1
+Bike                                      1
+Name: VEHICLE TYPE CODE 3, dtype: int64
+NaN                                    6776
+Sedan                                    88
+Station Wagon/Sport Utility Vehicle      69
+Pick-up Truck                             8
+Tractor Truck Diesel                      2
+Dump                                      1
+Flat Bed                                  1
+SEMI-TRUCK                                1
+Convertible                               1
+4 dr sedan                                1
+PK                                        1
+Name: VEHICLE TYPE CODE 4, dtype: int64
+NaN                                    6893
+Station Wagon/Sport Utility Vehicle      27
+Sedan                                    26
+Pick-up Truck                             1
+Box Truck                                 1
+Taxi                                      1
+Name: VEHICLE TYPE CODE 5, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>For the most part the values of <code>LATITUDE</code> and <code>LONGITUDE</code> all look legitimate, however there are a handful of entries – 76 – that are 0.000000, which is not possible considering NYC is not located at this longitude or latitude. The below code shows the frequency tables for these two variables, and it then changes the entries with 0.0s to missing values.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># frequency tables </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"LATITUDE"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23[<span class="st">"LONGITUDE"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># replace 0.0 with nan (on cleaning dataframe)</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>jan23_cleaning[<span class="st">"LATITUDE"</span>] <span class="op">=</span> jan23[<span class="st">"LATITUDE"</span>].replace([<span class="fl">0.0</span>], np.nan)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>jan23_cleaning[<span class="st">"LONGITUDE"</span>] <span class="op">=</span> jan23[<span class="st">"LONGITUDE"</span>].replace([<span class="fl">0.0</span>], np.nan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NaN          467
+0.000000      76
+40.748913      6
+40.651863      6
+40.652767      6
+            ... 
+40.667587      1
+40.704605      1
+40.574680      1
+40.727093      1
+40.620130      1
+Name: LATITUDE, Length: 5438, dtype: int64
+ NaN          467
+ 0.000000      76
+-73.937400      8
+-73.944160      7
+-73.865360      7
+             ... 
+-73.957250      1
+-73.959000      1
+-73.808010      1
+-73.986694      1
+-73.839800      1
+Name: LONGITUDE, Length: 5189, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p>There were 32 instances of missing latitude and longitude in which there was an entry for <code>OFF STREET NAME</code>. The below code finds any instance in which <code>OFF STREET NAME</code> is not missing and <code>LATITUDE</code> and <code>LONGITUDE</code> are missing, and replaces the missing location via geocoding (if the geocoding method is able to locate it).</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># determines the latitude and longitude given a street address</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> location(address):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># concatenate more information</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    new_addr <span class="op">=</span> address <span class="op">+</span> <span class="st">", New York, New York"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># try to locate address</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"my_request"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> geolocator.geocode(new_addr)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> location.latitude, location.longitude</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if cannot locate, return nan</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan, np.nan</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># all crashes that have an off street name entry</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>has_off_street <span class="op">=</span> jan23[<span class="st">'OFF STREET NAME'</span>].notnull()</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># all crashes with no latitude entry</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>no_lat <span class="op">=</span> jan23[<span class="st">'LATITUDE'</span>].isnull()</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># all crashes with an off street entry but no latitude entry</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>has_street_no_lat <span class="op">=</span> jan23_cleaning[has_off_street <span class="op">&amp;</span> no_lat]</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co"># for each entry </span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> has_street_no_lat[<span class="st">"OFF STREET NAME"</span>]:</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if location is found, update the latitude and longitude</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> location(i) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        lat, lng <span class="op">=</span> location(i)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        jan23_cleaning[<span class="st">"LATITUDE"</span>][count] <span class="op">=</span> lat  </span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        jan23_cleaning[<span class="st">"LONGITUDE"</span>][count] <span class="op">=</span> lng</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># printing to show the updates</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(jan23_cleaning[<span class="st">"LATITUDE"</span>][count],jan23_cleaning[<span class="st">"LONGITUDE"</span>][count])</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    count<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.92526590555501 -73.88959314572199</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.7167585 -73.45206739781105</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.7653535 -73.9835992</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.887709 -73.906335</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.60449493877552 -73.75581197959184</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.877996207260004 -73.91660704983441</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.7972178 -73.9756094</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.718114 -74.015194</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.6790237 -73.863257</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.8160186 -73.9307271</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.68103655 -73.86556825</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.7343636 -73.88236725010495</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.6549829 -73.8727727</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.605943 -73.651673</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.72372565 -73.79011531221127</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.78883414285715 -73.7009268095238</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.71302721739131 -73.98374686956522</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.6204791 -74.1774709</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.607888849999995 -74.0244909230886</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.752112 -73.051978147103</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nan nan</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>40.7385509 -73.715183</code></pre>
+</div>
+</div>
+</section>
+<section id="question-5-optional" class="level3">
+<h3 class="anchored" data-anchor-id="question-5-optional">Question 5 (optional)</h3>
+<p>From the below code, we see that there are 32 reports that are missing both latitude and on street name. There are many more reports missing the on street name input then those missing the latitude. However, not all reports missing on street name are missing latitude, and vice versa. Thus, the missing patterns of these two variables do not exactly match. We also see that there are 209 reports that have both an input for cross street name and on street name, but do not have have latitude and longitude inputs. We could theoretically determine the geolocation based on this information and fill in these missing values. (However, I could not figure out how to do so)</p>
+<ul>
+<li>Note: I am working on original data frame, not the one altered in the last question.</li>
+</ul>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of all crashes missing "ON STREET NAME"</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>no_onstreet <span class="op">=</span> <span class="bu">set</span>(jan23[jan23[<span class="st">'ON STREET NAME'</span>].isnull()].index.tolist())</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of all crashes not missing "ON STREET NAME"</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>has_onstreet <span class="op">=</span> <span class="bu">set</span>(jan23[jan23[<span class="st">'ON STREET NAME'</span>].notnull()].index.tolist())</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of all crashes missing "LATITUDE"</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>no_lat <span class="op">=</span> <span class="bu">set</span>(jan23[jan23[<span class="st">'LATITUDE'</span>].isnull()].index.tolist())</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of all crashes not missing "LATITUDE"</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>has_lat <span class="op">=</span> <span class="bu">set</span>(jan23[jan23[<span class="st">'LATITUDE'</span>].notnull()].index.tolist())</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of crashes missing on street and latitude</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>missing_both <span class="op">=</span> no_onstreet.intersection(no_lat)</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of crashes missing both on street name and latitude:"</span> , <span class="bu">len</span>(missing_both))</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="co"># cross table for on street and latitude</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>): </span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  pd.crosstab(index <span class="op">=</span> jan23[<span class="st">"ON STREET NAME"</span>], columns <span class="op">=</span> jan23[<span class="st">"LATITUDE"</span>], dropna <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of all crashes not missing cross street name</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>has_cross_street <span class="op">=</span> <span class="bu">set</span>(jan23[jan23[<span class="st">'CROSS STREET NAME'</span>].notnull()].index.tolist())</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes of crashes that have a cross street name and on street name</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>cross_and_on <span class="op">=</span> has_onstreet.intersection(has_cross_street)</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="co"># set with indexes containing the off street and cross street but missing geolocation</span></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>cross_on_nolat <span class="op">=</span> cross_and_on.intersection(no_lat)</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of crashes with both on street name and cross street name but missing latitude and longitude:"</span> ,<span class="bu">len</span>(cross_on_nolat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of crashes missing both on street name and latitude: 32</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of crashes with both on street name and cross street name but missing latitude and longitude: 209</code></pre>
+</div>
+</div>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p>Yes, zip code and borough are always missing together. The below code uses reverse geocoding to fill in the missing zips and boroughs, given that the latitude and longitude are available for a given crash. See the output for the replaced zipcodes and boroughs.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># series with all crashes missing "ZIP CODE"</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>no_zip <span class="op">=</span> jan23[<span class="st">'ZIP CODE'</span>].isnull()</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># series with all crashes missing "BOROUGH"</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>no_borough <span class="op">=</span> jan23[<span class="st">'BOROUGH'</span>].isnull()</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># check if zipcode and borough are always missing together</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Zip and Borough are always missing together? "</span>, no_zip.equals(no_borough))</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a series containing reports that are missing zipcode but have latitude</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>no_zip_yes_lat_mask <span class="op">=</span> no_zip <span class="op">&amp;</span> (jan23[<span class="st">"LATITUDE"</span>].notnull())</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>no_zip_yes_lat <span class="op">=</span> jan23[no_zip_yes_lat_mask]</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="co"># imports for the following functions</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> uszipcode <span class="im">import</span> SearchEngine</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Union, List</span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Note this is code from the class notes</span></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Given zipcode, computes the respective borough</span></span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nyczip2borough(zips: pd.Series) <span class="op">-&gt;</span> pd.Series:</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a>    zips <span class="op">=</span> zips.values <span class="cf">if</span> <span class="bu">isinstance</span>(zips, pd.Series) <span class="cf">else</span> zips</span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>    condlist <span class="op">=</span> [</span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a>        (zips <span class="op">&gt;=</span> <span class="dv">10001</span>) <span class="op">&amp;</span> (zips <span class="op">&lt;=</span> <span class="dv">10282</span>),</span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a>        (zips <span class="op">&gt;=</span> <span class="dv">10301</span>) <span class="op">&amp;</span> (zips <span class="op">&lt;=</span> <span class="dv">10314</span>),</span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>        (zips <span class="op">&gt;=</span> <span class="dv">10451</span>) <span class="op">&amp;</span> (zips <span class="op">&lt;=</span> <span class="dv">10475</span>),</span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a>        (zips <span class="op">&gt;=</span> <span class="dv">11004</span>) <span class="op">&amp;</span> (zips <span class="op">&lt;=</span> <span class="dv">11109</span>),</span>
+<span id="cb48-28"><a href="#cb48-28" aria-hidden="true" tabindex="-1"></a>        (zips <span class="op">&gt;=</span> <span class="dv">11351</span>) <span class="op">&amp;</span> (zips <span class="op">&lt;=</span> <span class="dv">11697</span>),</span>
+<span id="cb48-29"><a href="#cb48-29" aria-hidden="true" tabindex="-1"></a>        (zips <span class="op">&gt;=</span> <span class="dv">11201</span>) <span class="op">&amp;</span> (zips <span class="op">&lt;=</span> <span class="dv">11256</span>),</span>
+<span id="cb48-30"><a href="#cb48-30" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb48-31"><a href="#cb48-31" aria-hidden="true" tabindex="-1"></a>    choicelist <span class="op">=</span> [</span>
+<span id="cb48-32"><a href="#cb48-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"MANHATTAN"</span>,</span>
+<span id="cb48-33"><a href="#cb48-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"STATEN ISLAND"</span>,</span>
+<span id="cb48-34"><a href="#cb48-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"BRONX"</span>,</span>
+<span id="cb48-35"><a href="#cb48-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"QUEENS"</span>,</span>
+<span id="cb48-36"><a href="#cb48-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"QUEENS"</span>,</span>
+<span id="cb48-37"><a href="#cb48-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">"BROOKLYN"</span>,</span>
+<span id="cb48-38"><a href="#cb48-38" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb48-39"><a href="#cb48-39" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> pd.Series(np.select(condlist, choicelist, default<span class="op">=</span>np.nan))</span>
+<span id="cb48-40"><a href="#cb48-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb48-41"><a href="#cb48-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-42"><a href="#cb48-42" aria-hidden="true" tabindex="-1"></a>sr <span class="op">=</span> SearchEngine()</span>
+<span id="cb48-43"><a href="#cb48-43" aria-hidden="true" tabindex="-1"></a><span class="co"># find the missing zipcodes</span></span>
+<span id="cb48-44"><a href="#cb48-44" aria-hidden="true" tabindex="-1"></a>zipcodes <span class="op">=</span> [(<span class="bu">int</span>(sr.by_coordinates(lat, lng, radius<span class="op">=</span><span class="dv">5</span>)[<span class="dv">0</span>].zipcode)) <span class="cf">for</span> lat, lng <span class="kw">in</span> <span class="bu">zip</span>(no_zip_yes_lat[<span class="st">'LATITUDE'</span>], no_zip_yes_lat[<span class="st">'LONGITUDE'</span>])]</span>
+<span id="cb48-45"><a href="#cb48-45" aria-hidden="true" tabindex="-1"></a>zipcodes <span class="op">=</span> pd.Series(zipcodes)</span>
+<span id="cb48-46"><a href="#cb48-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-47"><a href="#cb48-47" aria-hidden="true" tabindex="-1"></a><span class="co"># find the missing boroughs</span></span>
+<span id="cb48-48"><a href="#cb48-48" aria-hidden="true" tabindex="-1"></a>boroughs <span class="op">=</span> nyczip2borough(zipcodes)</span>
+<span id="cb48-49"><a href="#cb48-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-50"><a href="#cb48-50" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing entry with found zipcode</span></span>
+<span id="cb48-51"><a href="#cb48-51" aria-hidden="true" tabindex="-1"></a>jan23_cleaning.loc[no_zip_yes_lat_mask, <span class="st">"ZIP CODE"</span>] <span class="op">=</span> zipcodes.values</span>
+<span id="cb48-52"><a href="#cb48-52" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing entry with found borough</span></span>
+<span id="cb48-53"><a href="#cb48-53" aria-hidden="true" tabindex="-1"></a>jan23_cleaning.loc[no_zip_yes_lat_mask, <span class="st">"BOROUGH"</span>] <span class="op">=</span> boroughs.values</span>
+<span id="cb48-54"><a href="#cb48-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-55"><a href="#cb48-55" aria-hidden="true" tabindex="-1"></a><span class="co"># printing to show that it works</span></span>
+<span id="cb48-56"><a href="#cb48-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23_cleaning.loc[no_zip_yes_lat_mask, <span class="st">"ZIP CODE"</span>])</span>
+<span id="cb48-57"><a href="#cb48-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jan23_cleaning.loc[no_zip_yes_lat_mask, <span class="st">"BOROUGH"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Zip and Borough are always missing together?  True</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3       11103.0
+4       10462.0
+9       10461.0
+10      11422.0
+18      11206.0
+         ...   
+6940    11101.0
+6944    10459.0
+6945    11205.0
+6946    11418.0
+6948    97003.0
+Name: ZIP CODE, Length: 1953, dtype: float64
+3         QUEENS
+4          BRONX
+9          BRONX
+10        QUEENS
+18      BROOKLYN
+          ...   
+6940      QUEENS
+6944       BRONX
+6945    BROOKLYN
+6946      QUEENS
+6948         nan
+Name: BOROUGH, Length: 1953, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
+<p>The below code prints the whole frequency table of <code>CONTRIBUTING FACTOR VEHICLE 1</code> and then converts the entries to all lowercase and checks the frequencies again. There is no difference.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>):</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 1"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>):</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(jan23[<span class="st">"CONTRIBUTING FACTOR VEHICLE 1"</span>].<span class="bu">str</span>.lower().value_counts(dropna<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Driver Inattention/Distraction                           1700
+Unspecified                                              1615
+Failure to Yield Right-of-Way                             549
+Following Too Closely                                     438
+Passing or Lane Usage Improper                            332
+Unsafe Speed                                              278
+Passing Too Closely                                       258
+Backing Unsafely                                          211
+Traffic Control Disregarded                               193
+Other Vehicular                                           180
+Turning Improperly                                        180
+Driver Inexperience                                       145
+Alcohol Involvement                                       124
+Unsafe Lane Changing                                      118
+View Obstructed/Limited                                    70
+Reaction to Uninvolved Vehicle                             63
+Aggressive Driving/Road Rage                               54
+Pedestrian/Bicyclist/Other Pedestrian Error/Confusion      54
+NaN                                                        53
+Pavement Slippery                                          48
+Fell Asleep                                                39
+Brakes Defective                                           30
+Oversized Vehicle                                          28
+Steering Failure                                           21
+Passenger Distraction                                      18
+Outside Car Distraction                                    17
+Lost Consciousness                                         17
+Glare                                                      14
+Tire Failure/Inadequate                                    13
+Obstruction/Debris                                         12
+Illnes                                                     10
+Drugs (illegal)                                            10
+Accelerator Defective                                       9
+Failure to Keep Right                                       9
+Driverless/Runaway Vehicle                                  6
+Pavement Defective                                          6
+Physical Disability                                         5
+Fatigued/Drowsy                                             4
+Animals Action                                              4
+Other Electronic Device                                     2
+Tinted Windows                                              2
+Tow Hitch Defective                                         2
+Cell Phone (hand-Held)                                      2
+Windshield Inadequate                                       1
+Texting                                                     1
+Prescription Medication                                     1
+Traffic Control Device Improper/Non-Working                 1
+Lane Marking Improper/Inadequate                            1
+Other Lighting Defects                                      1
+Name: CONTRIBUTING FACTOR VEHICLE 1, dtype: int64
+driver inattention/distraction                           1700
+unspecified                                              1615
+failure to yield right-of-way                             549
+following too closely                                     438
+passing or lane usage improper                            332
+unsafe speed                                              278
+passing too closely                                       258
+backing unsafely                                          211
+traffic control disregarded                               193
+other vehicular                                           180
+turning improperly                                        180
+driver inexperience                                       145
+alcohol involvement                                       124
+unsafe lane changing                                      118
+view obstructed/limited                                    70
+reaction to uninvolved vehicle                             63
+aggressive driving/road rage                               54
+pedestrian/bicyclist/other pedestrian error/confusion      54
+NaN                                                        53
+pavement slippery                                          48
+fell asleep                                                39
+brakes defective                                           30
+oversized vehicle                                          28
+steering failure                                           21
+passenger distraction                                      18
+outside car distraction                                    17
+lost consciousness                                         17
+glare                                                      14
+tire failure/inadequate                                    13
+obstruction/debris                                         12
+illnes                                                     10
+drugs (illegal)                                            10
+accelerator defective                                       9
+failure to keep right                                       9
+driverless/runaway vehicle                                  6
+pavement defective                                          6
+physical disability                                         5
+fatigued/drowsy                                             4
+animals action                                              4
+other electronic device                                     2
+tinted windows                                              2
+tow hitch defective                                         2
+cell phone (hand-held)                                      2
+windshield inadequate                                       1
+texting                                                     1
+prescription medication                                     1
+traffic control device improper/non-working                 1
+lane marking improper/inadequate                            1
+other lighting defects                                      1
+Name: CONTRIBUTING FACTOR VEHICLE 1, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
+<p>Given an opportunity to meet with the data provider, I would give them the following suggestions:</p>
+<ul>
+<li><p>It seems unneeded to include location, given that latitude and longitude is already included</p></li>
+<li><p>Suggest that the possible entries for contributing factors and vehicle types are standardizes</p></li>
+<li><p>Suggest that they use given information (such as latitude and longitude) to fill out zipcodes, boroughs, or street addresses, or vice versa to make the data more complete</p></li>
+<li><p>Clarify whether a crash at 00:00 is actually at midnight or if it should be treated as a missing value</p></li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
