@@ -97,6 +97,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="Stat3255_Homework_Solutions_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Stat3255_Homework_Solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Stat3255_Homework_Solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -132,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="q3-the-monty-hall-problem" class="level2">
 <h2 class="anchored" data-anchor-id="q3-the-monty-hall-problem">Q3: The Monty Hall Problem</h2>
-<p>Solution from Alsubai Nadia.</p>
+<p>Solution from Bedard Kaitlyn.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
@@ -221,9 +224,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The proportion of winning if the player switches in the 5 door "</span> </span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>      <span class="st">"scenario is"</span>, montyhall(<span class="dv">5</span>,<span class="dv">1000</span>)[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The proportion of winning if the player stays in the 3 door scenario is 0.331
-The proportion of winning if the player switches in the 3 door scenario is 0.664
-The proportion of winning if the player stays in the 5 door scenario is 0.194
+<pre><code>The proportion of winning if the player stays in the 3 door scenario is 0.314
+The proportion of winning if the player switches in the 3 door scenario is 0.684
+The proportion of winning if the player stays in the 5 door scenario is 0.186
 The proportion of winning if the player switches in the 5 door scenario is 0.257</code></pre>
 </div>
 </div>
@@ -325,7 +328,7 @@ https://math.stackexchange.com/</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import data</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>jan23 <span class="op">=</span> pd.read_csv(<span class="st">"nyc_crashes_202301.csv"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>jan23 <span class="op">=</span> pd.read_csv(<span class="st">"./data/nyc_crashes_202301.csv"</span>)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a copy for cleaning</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>jan23_cleaning <span class="op">=</span> jan23.copy()</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># gives the dimensions of our data</span></span>
@@ -819,7 +822,7 @@ Name: LONGITUDE, Length: 5189, dtype: int64</code></pre>
 <pre><code>nan nan</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>40.877996207260004 -73.91660704983441</code></pre>
+<pre><code>nan nan</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>40.7972178 -73.9756094</code></pre>
@@ -1146,6 +1149,724 @@ Name: CONTRIBUTING FACTOR VEHICLE 1, dtype: int64</code></pre>
 <li><p>Suggest that they use given information (such as latitude and longitude) to fill out zipcodes, boroughs, or street addresses, or vice versa to make the data more complete</p></li>
 <li><p>Clarify whether a crash at 00:00 is actually at midnight or if it should be treated as a missing value</p></li>
 </ul>
+</section>
+</section>
+<section id="q7" class="level2">
+<h2 class="anchored" data-anchor-id="q7">Q7</h2>
+<p>Solutions from Bedard Kaitlyn.</p>
+<section id="question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<p>The below code constructs a contingency table for missing location by borough, and then performs a hypothesis test to see if the pattern is the same across all boroughs. The null hypothesis we will test is: the proportion of missing locations (ie: the missing pattern) is the same across all boroughs. The alternative hypothesis is: the porportion of missing locations (the missing pattern) is different across all boroughs. We will preform a chi-squared test at a significance level of 0.05. Based on the below results, we do not have evidence to reject the null hypothesis, as the p-value of the test is 0.13, thus, we can say the pattern of missing locations is roughly the same across all boroughs.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import data (uncleaned)</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>jan23 <span class="op">=</span> pd.read_csv(<span class="st">"./data/nyc_crashes_202301.csv"</span>)</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import cleaned data</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>jan23_clean <span class="op">=</span> pd.read_csv(<span class="st">"./data/nyc_crashes_202301_cleaned.csv"</span>)</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct and print the contingenxy table </span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="op">=</span> pd.crosstab(index<span class="op">=</span>jan23[<span class="st">'LOCATION'</span>].isnull(), columns<span class="op">=</span>jan23[<span class="st">'BOROUGH'</span>])</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contingency_table)</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co"># import needed packages for testing</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2_contingency</span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="co"># run the test</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>chi2_stat, p_value, dof, expected <span class="op">=</span> chi2_contingency(contingency_table)</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Chi-squared statistic: "</span>, chi2_stat)</span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"p-value: "</span>, p_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BOROUGH   BRONX  BROOKLYN  MANHATTAN  QUEENS  STATEN ISLAND
+LOCATION                                                   
+False       748      1599        741    1256            185
+True         13        12         16      16              3
+Chi-squared statistic:  8.856640203451095
+p-value:  0.06478440363897736</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
+<p>The below code constructs a new variable, <code>HOUR</code>, with integers ranging from 0 to 23. It then plots a histogram of the number of crashes by hour, as well as histograms of crashes by hour for each borough. See the files in the repo to view the histograms. (Trouble getting the images to be shown in the release.)</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the crash time into hours</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">'HOUR'</span>] <span class="op">=</span> jan23_clean[<span class="st">'CRASH TIME'</span>].<span class="bu">str</span>.split(<span class="st">':'</span>).<span class="bu">str</span>.get(<span class="dv">0</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">'HOUR'</span>] <span class="op">=</span> jan23_clean[<span class="st">'HOUR'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co">#(Commenting out the plot set up to avoid printing)</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the histogram of crash times by hour</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co">#jan23_clean.hist(column="HOUR", bins=24)</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the x and y labels</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Number of Crashes by Hour"</span>)</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Hour of Day"</span>)</span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Crashes"</span>)</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot as a PNG file</span></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"crashes_by_hour.png"</span>)</span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the histograms of crash times by hour and borough</span></span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>jan23_clean.hist(column<span class="op">=</span><span class="st">"HOUR"</span>, bins<span class="op">=</span><span class="dv">24</span>, by<span class="op">=</span><span class="st">"BOROUGH"</span>)</span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the x and y labels for each subplot</span></span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> plt.gcf().axes:</span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a>   ax.set_xlabel(<span class="st">"Hour of Day"</span>)</span>
+<span id="cb55-20"><a href="#cb55-20" aria-hidden="true" tabindex="-1"></a>   ax.set_ylabel(<span class="st">"Number of Crashes"</span>)</span>
+<span id="cb55-21"><a href="#cb55-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb55-22"><a href="#cb55-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb55-23"><a href="#cb55-23" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="ss">f"crashes_by_hour_by_borough.png"</span></span>
+<span id="cb55-24"><a href="#cb55-24" aria-hidden="true" tabindex="-1"></a>plt.savefig(filename)</span>
+<span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Stat3255_Homework_Solutions_files/figure-html/cell-13-output-1.png" width="599" height="449"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Stat3255_Homework_Solutions_files/figure-html/cell-13-output-2.png" width="662" height="470"></p>
+</div>
+</div>
+</section>
+<section id="question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
+<p>The below code plots all the crashes (that have latitude and longitude information available) on an interactive map. See the other release to view the map. Scroll in to see the specific markers of each crash in a given area.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using folium to make graph (couldn't get google maps to work)</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium.plugins <span class="im">import</span> MarkerCluster</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a map centered on New York City</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>nyc_map <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">40.7</span>, <span class="op">-</span><span class="fl">74.0</span>], zoom_start<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a marker cluster to hold the data points</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>marker_cluster <span class="op">=</span> MarkerCluster().add_to(nyc_map)</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add each data point to the marker cluster</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> jan23_clean.iterrows():</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">not</span> pd.isna(row[<span class="st">'LATITUDE'</span>]):</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>    folium.Marker(location<span class="op">=</span>[row[<span class="st">'LATITUDE'</span>], row[<span class="st">'LONGITUDE'</span>]]).add_to(marker_cluster)</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the map as an HTML file</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>map_file <span class="op">=</span> <span class="st">"nyc_map.html"</span></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>nyc_map.save(map_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-4-1">Question 4</h3>
+<p>The below code constructs a new variable <code>injury</code> which is 1 if the number of persons injuried is 1 or more and 0 otherwise. It then constructs a contingency table for injury versus borough, and conducts a hypothesis test. The null hypothesis we will test is that that injury and borough are not associated, meaning that each borough has the same porportion of injuries. The alternative hypothesis would be that injury and borough are associated, meaning that the pattern of injury differs across the boroughs. We preform a chi-squared test, at a significance level of 0.05. Based on the below results, a p-value of 0.006, we have evidence to reject the null hypothesis. Thus, we can say that the number of injuries is not the same among all the boroughs, therefore the two variables injury and borough are associated.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new  variable, injury</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">'injury'</span>] <span class="op">=</span> (jan23_clean[<span class="st">'NUMBER OF PERSONS INJURED'</span>] <span class="op">&gt;</span> <span class="dv">1</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co"># construct and print cross table</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="op">=</span> pd.crosstab(index<span class="op">=</span>jan23_clean[<span class="st">'injury'</span>], columns<span class="op">=</span>jan23_clean[<span class="st">'BOROUGH'</span>])</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contingency_table)</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the chi-squared test</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>chi2_stat, p_value, dof, expected <span class="op">=</span> chi2_contingency(contingency_table)</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Chi-squared statistic: "</span>, chi2_stat)</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"p-value: "</span>, p_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BOROUGH  BRONX  BROOKLYN  MANHATTAN  QUEENS  STATEN ISLAND
+injury                                                    
+0         1027      2115       1121    1705            337
+1           74       180         58     150             20
+Chi-squared statistic:  14.606630344611924
+p-value:  0.005590646648997147</code></pre>
+</div>
+</div>
+</section>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>The below code merges the zip code database with the crash data, using the <code>uszipcode</code> library. To avoid redundant information in the merge, I specified which variables from the zip code database to merge with the crash data. See the head of the merged dataset to see the new variables.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import zipcode package</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> uszipcode <span class="im">import</span> SearchEngine</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>sr <span class="op">=</span> SearchEngine()</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co"># convert zipcodes to strings</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">"ZIP CODE"</span>] <span class="op">=</span> jan23_clean[<span class="st">"ZIP CODE"</span>].replace(np.nan, <span class="dv">0</span>)</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">"ZIP CODE"</span>] <span class="op">=</span> jan23_clean[<span class="st">"ZIP CODE"</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">"ZIP CODE"</span>] <span class="op">=</span> jan23_clean[<span class="st">"ZIP CODE"</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>jan23_clean[<span class="st">"ZIP CODE"</span>] <span class="op">=</span> jan23_clean[<span class="st">"ZIP CODE"</span>].replace(<span class="st">'0'</span>, np.nan)</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="co"># for each zip code in the dataset, find corresponding zip info</span></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, zipcode <span class="kw">in</span> <span class="bu">enumerate</span>(jan23_clean[<span class="st">"ZIP CODE"</span>]):</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> pd.isna(zipcode):</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>      result <span class="op">=</span> sr.by_zipcode(zipcode)</span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>      <span class="co"># adding only certain variables from the uszipcode info (to avoid redundancy)</span></span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_radius'</span>] <span class="op">=</span> result.radius_in_miles </span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_population'</span>] <span class="op">=</span> result.population</span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_population_density'</span>] <span class="op">=</span> result.population_density </span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_land_area'</span>] <span class="op">=</span> result.land_area_in_sqmi </span>
+<span id="cb59-18"><a href="#cb59-18" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_water_area'</span>] <span class="op">=</span> result.water_area_in_sqmi </span>
+<span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_housing_units'</span>] <span class="op">=</span> result.housing_units</span>
+<span id="cb59-20"><a href="#cb59-20" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_home_value'</span>] <span class="op">=</span> result.median_home_value </span>
+<span id="cb59-21"><a href="#cb59-21" aria-hidden="true" tabindex="-1"></a>      jan23_clean.loc[i, <span class="st">'zip_income'</span>] <span class="op">=</span> result.median_household_income</span>
+<span id="cb59-22"><a href="#cb59-22" aria-hidden="true" tabindex="-1"></a><span class="co"># show head of data to show successful merge</span></span>
+<span id="cb59-23"><a href="#cb59-23" aria-hidden="true" tabindex="-1"></a>jan23_clean.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CRASH DATE</th>
+      <th>CRASH TIME</th>
+      <th>BOROUGH</th>
+      <th>ZIP CODE</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>LOCATION</th>
+      <th>ON STREET NAME</th>
+      <th>CROSS STREET NAME</th>
+      <th>OFF STREET NAME</th>
+      <th>...</th>
+      <th>HOUR</th>
+      <th>injury</th>
+      <th>zip_radius</th>
+      <th>zip_population</th>
+      <th>zip_population_density</th>
+      <th>zip_land_area</th>
+      <th>zip_water_area</th>
+      <th>zip_housing_units</th>
+      <th>zip_home_value</th>
+      <th>zip_income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01/01/2023</td>
+      <td>14:38</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.925266</td>
+      <td>-73.889593</td>
+      <td>NaN</td>
+      <td>BROOKLYN QUEENS EXPRESSWAY RAMP</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>14</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01/01/2023</td>
+      <td>8:04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.716758</td>
+      <td>-73.452067</td>
+      <td>NaN</td>
+      <td>NASSAU EXPRESSWAY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>8</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01/01/2023</td>
+      <td>18:05</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10 AVENUE</td>
+      <td>11 AVENUE</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>18</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01/01/2023</td>
+      <td>23:45</td>
+      <td>QUEENS</td>
+      <td>11103</td>
+      <td>40.765354</td>
+      <td>-73.983599</td>
+      <td>(40.769737, -73.91244)</td>
+      <td>ASTORIA BOULEVARD</td>
+      <td>37 STREET</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>23</td>
+      <td>1</td>
+      <td>0.852273</td>
+      <td>38780.0</td>
+      <td>54537.0</td>
+      <td>0.71</td>
+      <td>0.0</td>
+      <td>18518.0</td>
+      <td>648900.0</td>
+      <td>55129.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01/01/2023</td>
+      <td>4:50</td>
+      <td>BRONX</td>
+      <td>10462</td>
+      <td>40.887709</td>
+      <td>-73.906335</td>
+      <td>(40.830555, -73.85072)</td>
+      <td>CASTLE HILL AVENUE</td>
+      <td>EAST 177 STREET</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>75784.0</td>
+      <td>51207.0</td>
+      <td>1.48</td>
+      <td>0.0</td>
+      <td>31331.0</td>
+      <td>271300.0</td>
+      <td>45864.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 39 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-6-1">Question 6</h3>
+<p>We fit a logistic regression with the following covariates, obtained from the merge with the zipcode data: <code>zip_population_density</code>, <code>zip_home_value</code>, and <code>zip_income</code>. From the below results, it is safe to say that the model is not a good fit, based on the high log-likelihood, pearson chi2 value, and deviance, as well as the low R-squared value. However, based on the p-values associated with each parameter, in this model, the median home value of the zipcode that a crash occurs is statistically significant (p = 0.009). This implies that there may be some relationship between the median home value of the area and whether or not injuries occur during a crash. The coefficient of this variable is -2.624, so this implies that as the home values increase, it is less likely that a crash results in an injury. This is an interesting observation that could imply that wealthier neighborhoods are also safer for driving. The other covariates used in this logistic regression however – population density and median income of the zipcode of th crash – were not found to be statistically significant in this model.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import needed packages</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># construct the logistic regression model</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>mylogistic <span class="op">=</span> smf.glm(formula <span class="op">=</span> <span class="st">'injury ~ zip_population_density + zip_home_value + zip_income'</span>, data <span class="op">=</span> jan23_clean,</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>                     family <span class="op">=</span> sm.families.Binomial())</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print logistic fit results</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>mylfit <span class="op">=</span> mylogistic.fit()</span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>mylfit.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<table class="simpletable">
+<caption>Generalized Linear Model Regression Results</caption>
+<tbody><tr>
+  <th>Dep. Variable:</th>        <td>injury</td>      <th>  No. Observations:  </th>  <td>  6712</td> 
+</tr>
+<tr>
+  <th>Model:</th>                  <td>GLM</td>       <th>  Df Residuals:      </th>  <td>  6708</td> 
+</tr>
+<tr>
+  <th>Model Family:</th>        <td>Binomial</td>     <th>  Df Model:          </th>  <td>     3</td> 
+</tr>
+<tr>
+  <th>Link Function:</th>         <td>Logit</td>      <th>  Scale:             </th> <td>  1.0000</td>
+</tr>
+<tr>
+  <th>Method:</th>                <td>IRLS</td>       <th>  Log-Likelihood:    </th> <td> -1702.7</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Mon, 27 Feb 2023</td> <th>  Deviance:          </th> <td>  3405.3</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>21:02:17</td>     <th>  Pearson chi2:      </th> <td>6.71e+03</td>
+</tr>
+<tr>
+  <th>No. Iterations:</th>          <td>6</td>        <th>  Pseudo R-squ. (CS):</th> <td>0.002356</td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>     <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</tbody></table>
+<table class="simpletable">
+<tbody><tr>
+             <td></td>               <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P&gt;|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>              <td>   -1.9494</td> <td>    0.179</td> <td>  -10.906</td> <td> 0.000</td> <td>   -2.300</td> <td>   -1.599</td>
+</tr>
+<tr>
+  <th>zip_population_density</th> <td>-2.068e-06</td> <td> 2.08e-06</td> <td>   -0.992</td> <td> 0.321</td> <td>-6.15e-06</td> <td> 2.02e-06</td>
+</tr>
+<tr>
+  <th>zip_home_value</th>         <td>-9.851e-07</td> <td> 3.75e-07</td> <td>   -2.624</td> <td> 0.009</td> <td>-1.72e-06</td> <td>-2.49e-07</td>
+</tr>
+<tr>
+  <th>zip_income</th>             <td>-8.875e-07</td> <td> 2.86e-06</td> <td>   -0.311</td> <td> 0.756</td> <td>-6.48e-06</td> <td> 4.71e-06</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</section>
+</section>
+<section id="q8" class="level2">
+<h2 class="anchored" data-anchor-id="q8">Q8</h2>
+<p>Solution from Bedard Kaitlyn.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="co"># loading in the cleaned data</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>jan23 <span class="op">=</span> pd.read_csv(<span class="st">"./data/nyc_crashes_zip_merge.csv"</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculating number of injuries</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>jan23[<span class="st">'sum'</span>] <span class="op">=</span> jan23[<span class="st">'NUMBER OF PERSONS INJURED'</span>] <span class="op">+</span> jan23[<span class="st">'NUMBER OF PEDESTRIANS INJURED'</span>]<span class="op">+</span> jan23[<span class="st">'NUMBER OF CYCLIST INJURED'</span>] <span class="op">+</span> jan23[<span class="st">'NUMBER OF MOTORIST INJURED'</span>]</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> jan23.index:</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> jan23[<span class="st">'sum'</span>][index] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>        jan23.loc[index,[<span class="st">'injured'</span>]] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>        jan23.loc[index,[<span class="st">'injured'</span>]] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>jan23.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>CRASH DATE</th>
+      <th>CRASH TIME</th>
+      <th>BOROUGH</th>
+      <th>ZIP CODE</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>LOCATION</th>
+      <th>ON STREET NAME</th>
+      <th>CROSS STREET NAME</th>
+      <th>...</th>
+      <th>zip_radius</th>
+      <th>zip_population</th>
+      <th>zip_population_density</th>
+      <th>zip_land_area</th>
+      <th>zip_water_area</th>
+      <th>zip_housing_units</th>
+      <th>zip_home_value</th>
+      <th>zip_income</th>
+      <th>sum</th>
+      <th>injured</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>01/01/2023</td>
+      <td>14:38</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.925266</td>
+      <td>-73.889593</td>
+      <td>NaN</td>
+      <td>BROOKLYN QUEENS EXPRESSWAY RAMP</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>01/01/2023</td>
+      <td>8:04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.716758</td>
+      <td>-73.452067</td>
+      <td>NaN</td>
+      <td>NASSAU EXPRESSWAY</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>01/01/2023</td>
+      <td>18:05</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10 AVENUE</td>
+      <td>11 AVENUE</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>01/01/2023</td>
+      <td>23:45</td>
+      <td>QUEENS</td>
+      <td>11103.0</td>
+      <td>40.765354</td>
+      <td>-73.983599</td>
+      <td>(40.769737, -73.91244)</td>
+      <td>ASTORIA BOULEVARD</td>
+      <td>37 STREET</td>
+      <td>...</td>
+      <td>0.852273</td>
+      <td>38780.0</td>
+      <td>54537.0</td>
+      <td>0.71</td>
+      <td>0.0</td>
+      <td>18518.0</td>
+      <td>648900.0</td>
+      <td>55129.0</td>
+      <td>4</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>01/01/2023</td>
+      <td>4:50</td>
+      <td>BRONX</td>
+      <td>10462.0</td>
+      <td>40.887709</td>
+      <td>-73.906335</td>
+      <td>(40.830555, -73.85072)</td>
+      <td>CASTLE HILL AVENUE</td>
+      <td>EAST 177 STREET</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>75784.0</td>
+      <td>51207.0</td>
+      <td>1.48</td>
+      <td>0.0</td>
+      <td>31331.0</td>
+      <td>271300.0</td>
+      <td>45864.0</td>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 40 columns</p>
+</div>
+</div>
+</div>
+<section id="part-1---parameters" class="level3">
+<h3 class="anchored" data-anchor-id="part-1---parameters">Part 1 - Parameters</h3>
+<p>I chose to include the following parameters in the fitting of both the logistic regression and SVM models. These are the same parameters I selected last week as well. They were chosen mainly because, intuitively, it would make sense that these parameters may affect the <code>injured</code> variable.</p>
+<ul>
+<li><p><code>zip_population_density</code>: the population density of the zipcode in which a crash occured</p></li>
+<li><p><code>zip_home_value</code>: the median home value of the zipcode in which a crash occured</p></li>
+<li><p><code>zip_income</code>: the median household income of the zipcode in which a crash occured</p></li>
+</ul>
+</section>
+<section id="part-2---confusion-matrix-results" class="level3">
+<h3 class="anchored" data-anchor-id="part-2---confusion-matrix-results">Part 2 - Confusion Matrix Results</h3>
+<p>For the logistic regression model, our model correctly predicted 948 instances of no injury in a crash, however it did not predict correctly 567 crashes that resulted in injury.</p>
+<p>For the logistic regression model, our model correctly predicted 121 instances of no injury in a crash, however it did not predict correctly 69 crashes that did result in injury.</p>
+<p>Essentially, for both models, the confusion matrices indicate that the model does not make accurate predictions - especially at predicting a crash with an injury.</p>
+<p><strong>Creating Training and Testing Data for Logistic Regression</strong></p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test data is the last week of January</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> jan23[jan23[<span class="st">"CRASH DATE"</span>].<span class="bu">str</span>.contains(<span class="st">'01/25/2023|01/26/2023|01/27/2023|01/28/2023|01/29/2023|01/30/2023|01/31/2023'</span>)]</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co"># training data is everything else</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> jan23[<span class="op">~</span>jan23[<span class="st">"CRASH DATE"</span>].<span class="bu">str</span>.contains(<span class="st">'01/25/2023|01/26/2023|01/27/2023|01/28/2023|01/29/2023|01/30/2023|01/31/2023'</span>)]</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="co"># select the parameters to be included in the fit </span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>train_focus_data <span class="op">=</span> train[[<span class="st">'zip_population_density'</span>,<span class="st">'zip_home_value'</span>, <span class="st">'zip_income'</span>,<span class="st">'injured'</span>]]</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NaN rows to combat errors with fitting</span></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>training <span class="op">=</span> train_focus_data.dropna()</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># select the parameters to be included in the testing</span></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>test_focus_data <span class="op">=</span> test[[<span class="st">'zip_population_density'</span>,<span class="st">'zip_home_value'</span>, <span class="st">'zip_income'</span>,<span class="st">'injured'</span>]]</span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NaN rows</span></span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>testing <span class="op">=</span> test_focus_data.dropna()</span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># y training and testing</span></span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> training[<span class="st">'injured'</span>].values</span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> testing[<span class="st">'injured'</span>].values</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="co"># X training and testing</span></span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> training.drop(labels <span class="op">=</span> [<span class="st">'injured'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> testing.drop(labels <span class="op">=</span> [<span class="st">'injured'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Logistic Regression</strong></p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the logistic regression model</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>logreg <span class="op">=</span> LogisticRegression(solver<span class="op">=</span><span class="st">'liblinear'</span>)</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the grid for tuning parameters</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {<span class="st">'penalty'</span>: [<span class="st">'l1'</span>, <span class="st">'l2'</span>], <span class="st">'C'</span>: [<span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>]}</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use cross validation to find the best tuning parameters</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(logreg, param_grid, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X_train, y_train)</span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print the best tuning parameters</span></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Best hyperparameters: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(grid_search.best_params_))</span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co"># logistic regression with the best tuning parameters</span></span>
+<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a>logreg_best <span class="op">=</span> grid_search.best_estimator_</span>
+<span id="cb63-14"><a href="#cb63-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb63-15"><a href="#cb63-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the logistic regression model with best hyperparameters on the training data</span></span>
+<span id="cb63-16"><a href="#cb63-16" aria-hidden="true" tabindex="-1"></a>logreg_best.fit(X_train, y_train)</span>
+<span id="cb63-17"><a href="#cb63-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions</span></span>
+<span id="cb63-18"><a href="#cb63-18" aria-hidden="true" tabindex="-1"></a>y_pred_log <span class="op">=</span> logreg_best.predict(X_test)</span>
+<span id="cb63-19"><a href="#cb63-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute confusion matrix</span></span>
+<span id="cb63-20"><a href="#cb63-20" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred_log)</span>
+<span id="cb63-21"><a href="#cb63-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Logistic Regression Confusion Matrix:'</span>)</span>
+<span id="cb63-22"><a href="#cb63-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best hyperparameters: {'C': 0.001, 'penalty': 'l1'}
+Logistic Regression Confusion Matrix:
+[[948   0]
+ [567   0]]</code></pre>
+</div>
+</div>
+<p><strong>Creating Training and Testing Data for SVM</strong></p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="co"># test data is a random sample of 200 crashes</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>test_svm <span class="op">=</span> jan23.sample(n<span class="op">=</span><span class="dv">200</span>, random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="co"># training data is a random sample of 800 crashes</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>train_svm <span class="op">=</span> jan23.drop(test.index).sample(n<span class="op">=</span><span class="dv">800</span>, random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="co"># select the parameters to be included in the fit </span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>train_focus_data_svm <span class="op">=</span> train_svm[[<span class="st">'zip_population_density'</span>, <span class="st">'zip_home_value'</span>, <span class="st">'zip_income'</span>, <span class="st">'injured'</span>]]</span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NaN rows to combat errors with fitting</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>training_svm <span class="op">=</span> train_focus_data_svm.dropna()</span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a><span class="co"># select the parameters to be included in the testing</span></span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>test_focus_data_svm <span class="op">=</span> test_svm[[<span class="st">'zip_population_density'</span>, <span class="st">'zip_home_value'</span>, <span class="st">'zip_income'</span>, <span class="st">'injured'</span>]]</span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NaN rows</span></span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>testing_svm <span class="op">=</span> test_focus_data_svm.dropna()</span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a><span class="co"># y training and testing</span></span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>y_train_svm <span class="op">=</span> training_svm[<span class="st">'injured'</span>].values</span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a>y_test_svm <span class="op">=</span> testing_svm[<span class="st">'injured'</span>].values</span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a><span class="co"># X training and testing</span></span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a>X_train_svm <span class="op">=</span> training_svm.drop(labels<span class="op">=</span>[<span class="st">'injured'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>X_test_svm <span class="op">=</span> testing_svm.drop(labels<span class="op">=</span>[<span class="st">'injured'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Support Vector Machines</strong></p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> svm</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the SVM model</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>svc <span class="op">=</span> svm.SVC()</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the hyperparameters to search over</span></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {<span class="st">'C'</span>: [<span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>], <span class="st">'kernel'</span>: [<span class="st">'linear'</span>, <span class="st">'rbf'</span>, <span class="st">'poly'</span>]}</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use grid search cross-validation to find the best hyperparameters</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(svc, param_grid<span class="op">=</span>param_grid, scoring<span class="op">=</span><span class="st">'roc_auc'</span>)</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X_train_svm, y_train_svm)</span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the best hyperparameters</span></span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Best hyperparameters:'</span>, grid_search.best_params_)</span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the SVM model using the best hyperparameters</span></span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a>best_svc <span class="op">=</span> svm.SVC(<span class="op">**</span>grid_search.best_params_)</span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a>best_svc.fit(X_train_svm, y_train_svm)</span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set</span></span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>y_pred_svm <span class="op">=</span> best_svc.predict(X_test_svm)</span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute confusion matrix</span></span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test_svm, y_pred_svm)</span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'SVM Confusion Matrix:'</span>)</span>
+<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best hyperparameters: {'C': 0.01, 'kernel': 'rbf'}
+SVM Confusion Matrix:
+[[121   0]
+ [ 69   0]]</code></pre>
+</div>
+</div>
+</section>
+<section id="part-3---performance-comparisons" class="level3">
+<h3 class="anchored" data-anchor-id="part-3---performance-comparisons">Part 3 - Performance Comparisons</h3>
+<p>From the below results, it is clear that neither approach is able to predict injury well. This is not suprising considering we consider only a few parameters. Both models give a precision, recall, and F1-score of 0.0. These results essentially mean that neither model did a good job identifying the crashes that resulted in injuries. We see an accuracy of 0.6257 and an AUC of 0.5 for the logistic model and an accuracy of 0.6368 and an AUC of 0.5 for the SVM model. So, our SVM is very slightly more accurate than the logistic model. It is also important to note that the SVM model is trained with a much smaller sample than the logistic model (due to the fact the SVM training is time consuming for large samples.) So, SVM would most likely be a better approach in modeling the fit, especially if we use a larger sample size.</p>
+<p><strong>Logistic Regression Results</strong></p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_score, recall_score, f1_score, roc_auc_score</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the accuracy score</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred_log)</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Accuracy:'</span>, accuracy)</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the precision score</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred_log)</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Precision:'</span>, precision)</span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the recall score</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred_log)</span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Recall:'</span>, recall)</span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the F1-score</span></span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_test, y_pred_log)</span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'F1-score:'</span>, f1)</span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the AUC score</span></span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="co">#y_pred_prob = logreg_best.predict_proba(X_test)[:, 1]</span></span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>auc <span class="op">=</span> roc_auc_score(y_test, y_pred_log)</span>
+<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'AUC:'</span>, auc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.6257425742574257
+Precision: 0.0
+Recall: 0.0
+F1-score: 0.0
+AUC: 0.5</code></pre>
+</div>
+</div>
+<p><strong>SVM Results</strong></p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_score, recall_score, f1_score, roc_auc_score</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the accuracy score</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test_svm, y_pred_svm)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Accuracy:'</span>, accuracy)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the precision score</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test_svm, y_pred_svm)</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Precision:'</span>, precision)</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the recall score</span></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test_svm, y_pred_svm)</span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Recall:'</span>, recall)</span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the F1-score</span></span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_test_svm, y_pred_svm)</span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'F1-score:'</span>, f1)</span>
+<span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the AUC score</span></span>
+<span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a><span class="co">#y_pred_prob = logreg_best.predict_proba(X_test)[:, 1]</span></span>
+<span id="cb70-16"><a href="#cb70-16" aria-hidden="true" tabindex="-1"></a>auc <span class="op">=</span> roc_auc_score(y_test_svm, y_pred_svm)</span>
+<span id="cb70-17"><a href="#cb70-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'AUC:'</span>, auc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.6368421052631579
+Precision: 0.0
+Recall: 0.0
+F1-score: 0.0
+AUC: 0.5</code></pre>
+</div>
+</div>
 </section>
 </section>
 

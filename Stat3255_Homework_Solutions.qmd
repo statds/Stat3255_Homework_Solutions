@@ -201,7 +201,7 @@ Importing January 2023 NYC crash data.
 import pandas as pd
 
 # import data
-jan23 = pd.read_csv("nyc_crashes_202301.csv")
+jan23 = pd.read_csv("./data/nyc_crashes_202301.csv")
 # create a copy for cleaning
 jan23_cleaning = jan23.copy()
 # gives the dimensions of our data
@@ -440,3 +440,348 @@ Given an opportunity to meet with the data provider, I would give them the follo
 *   Suggest that they use given information (such as latitude and longitude) to fill out zipcodes, boroughs, or street addresses, or vice versa to make the data more complete
 
 *   Clarify whether a crash at 00:00 is actually at midnight or if it should be treated as a missing value
+
+
+## Q7
+
+Solutions from Bedard Kaitlyn.
+
+### Question 1
+The below code constructs a contingency table for missing location by borough, and then performs a 
+hypothesis test to see if the pattern is the same across all boroughs.
+The null hypothesis we will test is: the proportion of missing locations (ie: the missing pattern) is 
+the same across all boroughs. The alternative hypothesis is: the porportion of missing locations 
+(the missing pattern) is different across all boroughs. We will preform a chi-squared test at a 
+significance level of 0.05. Based on the below results, we do not have evidence to reject the null 
+hypothesis, as the p-value of the test is 0.13, thus, we can say the pattern of missing locations is 
+roughly the same across all boroughs. 
+```{python}
+import pandas as pd
+import numpy as np
+# import data (uncleaned)
+jan23 = pd.read_csv("./data/nyc_crashes_202301.csv")
+# import cleaned data
+jan23_clean = pd.read_csv("./data/nyc_crashes_202301_cleaned.csv")
+# Construct and print the contingenxy table 
+contingency_table = pd.crosstab(index=jan23['LOCATION'].isnull(), columns=jan23['BOROUGH'])
+print(contingency_table)
+# import needed packages for testing
+from scipy.stats import chi2_contingency
+# run the test
+chi2_stat, p_value, dof, expected = chi2_contingency(contingency_table)
+# Print the results
+print("Chi-squared statistic: ", chi2_stat)
+print("p-value: ", p_value)
+```
+
+### Question 2
+The below code constructs a new variable, `HOUR`, with integers ranging from 0 to 23. It then plots a 
+histogram of the number of crashes by hour, as well as histograms of crashes by hour for each borough. 
+See the files in the repo to view the histograms. (Trouble getting the images to be shown in the release.)
+```{python}
+import matplotlib.pyplot as plt
+# Split the crash time into hours
+jan23_clean['HOUR'] = jan23_clean['CRASH TIME'].str.split(':').str.get(0)
+jan23_clean['HOUR'] = jan23_clean['HOUR'].astype(int)
+#(Commenting out the plot set up to avoid printing)
+# Plot the histogram of crash times by hour
+#jan23_clean.hist(column="HOUR", bins=24)
+ 
+# Set the x and y labels
+plt.title("Number of Crashes by Hour")
+plt.xlabel("Hour of Day")
+plt.ylabel("Number of Crashes")
+# Save the plot as a PNG file
+plt.savefig("crashes_by_hour.png")
+# Plot the histograms of crash times by hour and borough
+jan23_clean.hist(column="HOUR", bins=24, by="BOROUGH")
+# Set the x and y labels for each subplot
+for ax in plt.gcf().axes:
+   ax.set_xlabel("Hour of Day")
+   ax.set_ylabel("Number of Crashes")
+plt.tight_layout()
+plt.show()
+filename = f"crashes_by_hour_by_borough.png"
+plt.savefig(filename)
+plt.close()
+```
+
+
+
+### Question 3
+The below code plots all the crashes (that have latitude and longitude information available) 
+on an interactive map. See the other release to view the map. Scroll in to see the specific markers
+of each crash in a given area. 
+```{python}
+# using folium to make graph (couldn't get google maps to work)
+import folium
+from folium.plugins import MarkerCluster
+from IPython.display import IFrame
+# Create a map centered on New York City
+nyc_map = folium.Map(location=[40.7, -74.0], zoom_start=10)
+# Create a marker cluster to hold the data points
+marker_cluster = MarkerCluster().add_to(nyc_map)
+# Add each data point to the marker cluster
+for index, row in jan23_clean.iterrows():
+  if not pd.isna(row['LATITUDE']):
+    folium.Marker(location=[row['LATITUDE'], row['LONGITUDE']]).add_to(marker_cluster)
+# Save the map as an HTML file
+map_file = "nyc_map.html"
+nyc_map.save(map_file)
+```
+
+### Question 4
+The below code constructs a new variable `injury` which is 1 if the number of persons injuried is 1 or more
+and 0 otherwise. It then constructs a contingency table for injury versus borough, and conducts a hypothesis test.
+The null hypothesis we will test is that that injury and borough are not associated, meaning that each 
+borough has the same porportion of injuries. The alternative hypothesis would be that injury and borough 
+are associated, meaning that the pattern of injury differs across the boroughs. We preform a chi-squared 
+test, at a significance level of 0.05. Based on the below results, a p-value of 0.006, we have evidence to reject 
+the null hypothesis. Thus, we can say that the number of injuries is not the same among all the boroughs, therefore
+the two variables injury and borough are associated.
+```{python}
+# create new  variable, injury
+jan23_clean['injury'] = (jan23_clean['NUMBER OF PERSONS INJURED'] > 1).astype(int)
+# construct and print cross table
+contingency_table = pd.crosstab(index=jan23_clean['injury'], columns=jan23_clean['BOROUGH'])
+print(contingency_table)
+# run the chi-squared test
+chi2_stat, p_value, dof, expected = chi2_contingency(contingency_table)
+# Print the results
+print("Chi-squared statistic: ", chi2_stat)
+print("p-value: ", p_value)
+```
+
+### Question 5
+The below code merges the zip code database with the crash data, using the `uszipcode` library.
+To avoid redundant information in the merge, I specified which variables from the zip code database
+to merge with the crash data. See the head of the merged dataset to see the new variables.
+```{python}
+# import zipcode package
+from uszipcode import SearchEngine
+sr = SearchEngine()
+# convert zipcodes to strings
+jan23_clean["ZIP CODE"] = jan23_clean["ZIP CODE"].replace(np.nan, 0)
+jan23_clean["ZIP CODE"] = jan23_clean["ZIP CODE"].astype(int)
+jan23_clean["ZIP CODE"] = jan23_clean["ZIP CODE"].astype(str)
+jan23_clean["ZIP CODE"] = jan23_clean["ZIP CODE"].replace('0', np.nan)
+# for each zip code in the dataset, find corresponding zip info
+for i, zipcode in enumerate(jan23_clean["ZIP CODE"]):
+    if not pd.isna(zipcode):
+      result = sr.by_zipcode(zipcode)
+      # adding only certain variables from the uszipcode info (to avoid redundancy)
+      jan23_clean.loc[i, 'zip_radius'] = result.radius_in_miles 
+      jan23_clean.loc[i, 'zip_population'] = result.population
+      jan23_clean.loc[i, 'zip_population_density'] = result.population_density 
+      jan23_clean.loc[i, 'zip_land_area'] = result.land_area_in_sqmi 
+      jan23_clean.loc[i, 'zip_water_area'] = result.water_area_in_sqmi 
+      jan23_clean.loc[i, 'zip_housing_units'] = result.housing_units
+      jan23_clean.loc[i, 'zip_home_value'] = result.median_home_value 
+      jan23_clean.loc[i, 'zip_income'] = result.median_household_income
+# show head of data to show successful merge
+jan23_clean.head()
+```
+
+### Question 6
+We fit a logistic regression with the following covariates, obtained from the merge with the zipcode data: 
+`zip_population_density`, `zip_home_value`, and `zip_income`. From the below results, it is safe to say 
+that the model is not a good fit, based on the high log-likelihood, pearson chi2 value, and deviance, as
+well as the low R-squared value. However, based on the p-values associated with each parameter, in this 
+model, the median home value of the zipcode that a crash occurs is statistically significant (p = 0.009). 
+This implies that there may be some relationship between the median home value of the area and whether or 
+not injuries occur during a crash. The coefficient of this variable is -2.624, so this implies that as the 
+home values increase, it is less likely that a crash results in an injury. This is an interesting observation 
+that could imply that wealthier neighborhoods are also safer for driving. The other covariates used in this 
+logistic regression however -- population density and median income of the zipcode of th crash --  were not 
+found to be statistically significant in this model.
+```{python}
+# import needed packages
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+# construct the logistic regression model
+mylogistic = smf.glm(formula = 'injury ~ zip_population_density + zip_home_value + zip_income', data = jan23_clean,
+                     family = sm.families.Binomial())
+# print logistic fit results
+mylfit = mylogistic.fit()
+mylfit.summary()
+```
+
+
+## Q8
+
+
+Solution from Bedard Kaitlyn.
+
+```{python}
+import pandas as pd
+# loading in the cleaned data
+jan23 = pd.read_csv("./data/nyc_crashes_zip_merge.csv")
+# calculating number of injuries
+jan23['sum'] = jan23['NUMBER OF PERSONS INJURED'] + jan23['NUMBER OF PEDESTRIANS INJURED']+ jan23['NUMBER OF CYCLIST INJURED'] + jan23['NUMBER OF MOTORIST INJURED']
+for index in jan23.index:
+    if jan23['sum'][index] > 0:
+        jan23.loc[index,['injured']] = 1
+    else:
+        jan23.loc[index,['injured']] = 0
+jan23.head()
+```
+
+### Part 1 - Parameters
+I chose to include the following parameters in the fitting of both the logistic regression and SVM models. 
+These are the same parameters I selected last week as well. They were chosen mainly because, intuitively, 
+it would make sense that these parameters may affect the `injured` variable. 
+ 
+* `zip_population_density`: the population density of the zipcode in which a crash occured
+
+* `zip_home_value`: the median home value of the zipcode in which a crash occured
+
+* `zip_income`: the median household income of the zipcode in which a crash occured
+
+
+### Part 2 - Confusion Matrix Results
+For the logistic regression model, our model correctly predicted 948 instances of no injury in a crash, however it did not predict correctly 567 crashes that resulted in injury. 
+
+For the logistic regression model, our model correctly predicted 121 instances of no injury in a crash, however it did not predict correctly 69 crashes that did result in injury. 
+
+Essentially, for both models, the confusion matrices indicate that the model does not make accurate predictions - especially at predicting a crash with an injury.
+
+**Creating Training and Testing Data for Logistic Regression**
+```{python}
+# test data is the last week of January
+test = jan23[jan23["CRASH DATE"].str.contains('01/25/2023|01/26/2023|01/27/2023|01/28/2023|01/29/2023|01/30/2023|01/31/2023')]
+# training data is everything else
+train = jan23[~jan23["CRASH DATE"].str.contains('01/25/2023|01/26/2023|01/27/2023|01/28/2023|01/29/2023|01/30/2023|01/31/2023')]
+# select the parameters to be included in the fit 
+train_focus_data = train[['zip_population_density','zip_home_value', 'zip_income','injured']]
+# drop NaN rows to combat errors with fitting
+training = train_focus_data.dropna()
+# select the parameters to be included in the testing
+test_focus_data = test[['zip_population_density','zip_home_value', 'zip_income','injured']]
+# drop NaN rows
+testing = test_focus_data.dropna()
+# y training and testing
+y_train = training['injured'].values
+y_test = testing['injured'].values
+# X training and testing
+X_train = training.drop(labels = ['injured'], axis=1)
+X_test = testing.drop(labels = ['injured'], axis=1)
+```
+
+**Logistic Regression**
+```{python}
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import GridSearchCV
+# Define the logistic regression model
+logreg = LogisticRegression(solver='liblinear')
+# Define the grid for tuning parameters
+param_grid = {'penalty': ['l1', 'l2'], 'C': [0.001, 0.01, 0.1, 1, 10, 100]}
+# Use cross validation to find the best tuning parameters
+grid_search = GridSearchCV(logreg, param_grid, cv=5)
+grid_search.fit(X_train, y_train)
+# print the best tuning parameters
+print("Best hyperparameters: {}".format(grid_search.best_params_))
+# logistic regression with the best tuning parameters
+logreg_best = grid_search.best_estimator_
+from sklearn.metrics import confusion_matrix
+# Fit the logistic regression model with best hyperparameters on the training data
+logreg_best.fit(X_train, y_train)
+# Make predictions
+y_pred_log = logreg_best.predict(X_test)
+# Compute confusion matrix
+cm = confusion_matrix(y_test, y_pred_log)
+print('Logistic Regression Confusion Matrix:')
+print(cm)
+```
+
+
+**Creating Training and Testing Data for SVM**
+```{python}
+import numpy as np
+# test data is a random sample of 200 crashes
+test_svm = jan23.sample(n=200, random_state=1)
+# training data is a random sample of 800 crashes
+train_svm = jan23.drop(test.index).sample(n=800, random_state=1)
+# select the parameters to be included in the fit 
+train_focus_data_svm = train_svm[['zip_population_density', 'zip_home_value', 'zip_income', 'injured']]
+# drop NaN rows to combat errors with fitting
+training_svm = train_focus_data_svm.dropna()
+# select the parameters to be included in the testing
+test_focus_data_svm = test_svm[['zip_population_density', 'zip_home_value', 'zip_income', 'injured']]
+# drop NaN rows
+testing_svm = test_focus_data_svm.dropna()
+# y training and testing
+y_train_svm = training_svm['injured'].values
+y_test_svm = testing_svm['injured'].values
+# X training and testing
+X_train_svm = training_svm.drop(labels=['injured'], axis=1)
+X_test_svm = testing_svm.drop(labels=['injured'], axis=1)
+```
+**Support Vector Machines**
+```{python}
+from sklearn import svm
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import confusion_matrix
+# Define the SVM model
+svc = svm.SVC()
+# Define the hyperparameters to search over
+param_grid = {'C': [0.001, 0.01, 0.1, 1, 10], 'kernel': ['linear', 'rbf', 'poly']}
+# Use grid search cross-validation to find the best hyperparameters
+grid_search = GridSearchCV(svc, param_grid=param_grid, scoring='roc_auc')
+grid_search.fit(X_train_svm, y_train_svm)
+# Print the best hyperparameters
+print('Best hyperparameters:', grid_search.best_params_)
+# Fit the SVM model using the best hyperparameters
+best_svc = svm.SVC(**grid_search.best_params_)
+best_svc.fit(X_train_svm, y_train_svm)
+# Make predictions on the test set
+y_pred_svm = best_svc.predict(X_test_svm)
+# Compute confusion matrix
+cm = confusion_matrix(y_test_svm, y_pred_svm)
+print('SVM Confusion Matrix:')
+print(cm)
+```
+
+### Part 3 - Performance Comparisons
+From the below results, it is clear that neither approach is able to predict injury well. This is not suprising considering we consider only a few parameters. Both models give a precision, recall, and F1-score of 0.0. These results essentially mean that neither model did a good job identifying the crashes that resulted in injuries. We see an accuracy of 0.6257 and an AUC of 0.5 for the logistic model and an accuracy of 0.6368 and an AUC of 0.5 for the SVM model. So, our SVM is very slightly more accurate than the logistic model. It is also important to note that the SVM model is trained with a much smaller sample than the logistic model (due to the fact the SVM training is time consuming for large samples.) So, SVM would most likely be a better approach in modeling the fit, especially if we use a larger sample size.
+
+**Logistic Regression Results**
+```{python}
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+# Compute the accuracy score
+accuracy = accuracy_score(y_test, y_pred_log)
+print('Accuracy:', accuracy)
+# Compute the precision score
+precision = precision_score(y_test, y_pred_log)
+print('Precision:', precision)
+# Compute the recall score
+recall = recall_score(y_test, y_pred_log)
+print('Recall:', recall)
+# Compute the F1-score
+f1 = f1_score(y_test, y_pred_log)
+print('F1-score:', f1)
+# Compute the AUC score
+#y_pred_prob = logreg_best.predict_proba(X_test)[:, 1]
+auc = roc_auc_score(y_test, y_pred_log)
+print('AUC:', auc)
+```
+
+**SVM Results**
+```{python}
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+# Compute the accuracy score
+accuracy = accuracy_score(y_test_svm, y_pred_svm)
+print('Accuracy:', accuracy)
+# Compute the precision score
+precision = precision_score(y_test_svm, y_pred_svm)
+print('Precision:', precision)
+# Compute the recall score
+recall = recall_score(y_test_svm, y_pred_svm)
+print('Recall:', recall)
+# Compute the F1-score
+f1 = f1_score(y_test_svm, y_pred_svm)
+print('F1-score:', f1)
+# Compute the AUC score
+#y_pred_prob = logreg_best.predict_proba(X_test)[:, 1]
+auc = roc_auc_score(y_test_svm, y_pred_svm)
+print('AUC:', auc)
+```
